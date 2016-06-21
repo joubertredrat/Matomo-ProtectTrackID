@@ -1,0 +1,19 @@
+{
+  "name": "ProtectTrackID",
+  "version": "0.1.0",
+  "description": "A Piwik plugin that project track ID",
+  "theme": false,
+  "require": {
+    "piwik": ">=2.16.2-b2"
+  },
+  "authors": [
+    {
+      "name": "Piwik",
+      "email": "",
+      "homepage": ""
+    }
+  ],
+  "homepage": "",
+  "license": "GPL v3+",
+  "keywords": []
+}
