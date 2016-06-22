@@ -35,29 +35,52 @@ class ProtectTrackID extends \Piwik\Plugin
     public function registerEvents()
     {
         return [
-            'Piwik.getJavascriptCode' => 'hashId',
+            'Piwik.getJavascriptCode' => 'hashIdJavaScript',
+            'SitesManager.getImageTrackingCode' => 'hashIdImage',
             'Tracker.Request.getIdSite' => 'unhashId'
         ];
     }
 
     /**
-     * Hash id site
+     * Hash id
      *
      * @param int $idSite
-     * @param array $params
-     * @return void
+     * @return string
      */
-    public function hashId(&$codeImpl, $parameters)
+    private function hashId($idSite)
     {
         require_once(__DIR__.'/vendor/autoload.php');
 
         $Settings = new Settings('ProtectTrackID');
-
         $salt = $Settings->saltSetting->getValue();
         $lenght = $Settings->lenghtSetting->getValue();
 
         $Hashid = new \Hashids\Hashids($salt, $lenght, $this->base);
-        $codeImpl['idSite'] = $Hashid->encode($codeImpl['idSite']);
+        return $Hashid->encode($idSite);
+    }
+
+    /**
+     * Hash id site for JavaScript Tracking Code
+     *
+     * @param array &$codeImpls
+     * @param array &$parameters
+     * @return void
+     */
+    public function hashIdJavaScript(&$codeImpl, $parameters)
+    {
+        $codeImpl['idSite'] = $this->hashId($codeImpl['idSite']);
+    }
+
+    /**
+     * Hash id site for Image Tracking Link
+     *
+     * @param array &$piwikUrl
+     * @param array &$urlParams
+     * @return void
+     */
+    public function hashIdImage(&$piwikUrl, &$urlParams)
+    {
+        $urlParams['idsite'] = $this->hashId($urlParams['idsite']);
     }
 
     /**
