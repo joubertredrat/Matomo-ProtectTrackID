@@ -35,6 +35,7 @@ class ProtectTrackID extends \Piwik\Plugin
     public function registerEvents()
     {
         return [
+            'Piwik.getJavascriptCode' => 'hashId',
             'Tracker.Request.getIdSite' => 'unhashId'
         ];
     }
@@ -46,7 +47,7 @@ class ProtectTrackID extends \Piwik\Plugin
      * @param array $params
      * @return void
      */
-    public function hashId(&$idSite, $params)
+    public function hashId(&$codeImpl, $parameters)
     {
         require_once(__DIR__.'/vendor/autoload.php');
 
@@ -55,8 +56,8 @@ class ProtectTrackID extends \Piwik\Plugin
         $salt = $Settings->saltSetting->getValue();
         $lenght = $Settings->lenghtSetting->getValue();
 
-        $Hashid = new Hashids\Hashids($salt, $lenght, $this->base);
-        $idSite = $Hashid->encode($params['idsite']);
+        $Hashid = new \Hashids\Hashids($salt, $lenght, $this->base);
+        $codeImpl['idSite'] = $Hashid->encode($codeImpl['idSite']);
     }
 
     /**
