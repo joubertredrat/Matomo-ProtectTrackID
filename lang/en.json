@@ -1,0 +1,15 @@
+{
+    "ProtectTrackID": {
+        "PluginDescription": "Protect Track ID: A Piwik plugin that project track ID.",
+	"ProtectTrackID": "Protect Track ID",
+        "SettingsDescription": "Settings for ProtectTrackID hashes site id",
+	"SaltLabel": "Salt",
+	"SaltDescription": "Salt string for hash track ID",
+	"SaltHelp": "Enter with a big random string",
+	"LenghtLabel": "Lenght",
+	"LenghtDescription": "Hash string size",
+	"LenghtHelp": "Enter a string lenght between 3 and 12",
+        "ErrMsgWrongValue": "Wrong input"
+    }
+}
+
