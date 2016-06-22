@@ -22,13 +22,6 @@ use Piwik\Settings\SystemSetting;
 class Settings extends \Piwik\Plugin\Settings
 {
     /**
-     * Base string for hash
-     *
-     * @var string
-     */
-    public $base = 'ABCDEFGHIJKLMNOPQRSTUVXWYZabcdefghijklmnopqrstuvxwyz1234567890';
-
-    /**
      * @see \Piwik\Plugin\Settings::init()
      */
     protected function init()
