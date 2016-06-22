@@ -1,5 +1,6 @@
 {
     "require": {
-        "hashids/hashids": "^1.0"
+        "hashids/hashids": "^1.0",
+        "ramsey/uuid": "^3.4"
     }
 }
