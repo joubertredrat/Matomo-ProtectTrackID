@@ -100,7 +100,7 @@ class ProtectTrackID extends \Piwik\Plugin
             $salt = $Settings->saltSetting->getValue();
             $lenght = $Settings->lenghtSetting->getValue();
 
-            $Hashid = new Hashids\Hashids($salt, $lenght, $this->base);
+            $Hashid = new \Hashids\Hashids($salt, $lenght, $this->base);
             $idSite = $Hashid->decode($params['idsite'])[0];
         }
     }
