@@ -2,18 +2,18 @@
 
 ## Description
 
-Add your plugin description here.
+A Piwik plugin for you protect track ID
 
 ## FAQ
 
-__My question?__
+__Why isn't good to change salt more times__
 
-My answer
+Because if you change salt, hashed string will change too, then old hashes will not work. ONLY change salt if you will change all JavaScript Tracking Code or Image Tracking Link after.
 
 ## Changelog
 
-Here goes the changelog text.
+* Version 0.1.0 - Alpha Release
 
 ## Support
 
-Please direct any feedback to ...
+Want support? Here in https://github.com/joubertredrat/Piwik-ProtectTrackID/issues
