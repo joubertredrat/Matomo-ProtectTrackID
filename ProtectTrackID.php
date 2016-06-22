@@ -35,7 +35,7 @@ class ProtectTrackID extends \Piwik\Plugin
     public function registerEvents()
     {
         return [
-            'Tracker.Request.getIdSite' => 'hashId'
+            'Tracker.Request.getIdSite' => 'unhashId'
         ];
     }
 
@@ -48,7 +48,7 @@ class ProtectTrackID extends \Piwik\Plugin
      */
     public function hashId(&$idSite, $params)
     {
-        require(__DIR__.'/vendor/autoload.php');
+        require_once(__DIR__.'/vendor/autoload.php');
 
         $Settings = new Settings('ProtectTrackID');
 
@@ -56,7 +56,7 @@ class ProtectTrackID extends \Piwik\Plugin
         $lenght = $Settings->lenghtSetting->getValue();
 
         $Hashid = new Hashids\Hashids($salt, $lenght, $this->base);
-        $idSite = $Hashid->encode($idSite);
+        $idSite = $Hashid->encode($params['idsite']);
     }
 
     /**
@@ -68,15 +68,17 @@ class ProtectTrackID extends \Piwik\Plugin
      */
     public function unhashId(&$idSite, $params)
     {
-        require(__DIR__.'/vendor/autoload.php');
+        if ($this->validateHash($params['idsite'])) {
+            require_once(__DIR__.'/vendor/autoload.php');
 
-        $Settings = new Settings('ProtectTrackID');
+            $Settings = new Settings('ProtectTrackID');
 
-        $salt = $Settings->saltSetting->getValue();
-        $lenght = $Settings->lenghtSetting->getValue();
+            $salt = $Settings->saltSetting->getValue();
+            $lenght = $Settings->lenghtSetting->getValue();
 
-        $Hashid = new Hashids\Hashids($salt, $lenght, $this->base);
-        $idSite = $Hashid->decode($idSite)[0];
+            $Hashid = new Hashids\Hashids($salt, $lenght, $this->base);
+            $idSite = $Hashid->decode($params['idsite'])[0];
+        }
     }
 
     /**
@@ -87,7 +89,7 @@ class ProtectTrackID extends \Piwik\Plugin
      */
     public function validateHash($hash)
     {
-        require(__DIR__.'/vendor/autoload.php');
+        require_once(__DIR__.'/vendor/autoload.php');
 
         $Settings = new Settings('ProtectTrackID');
 
