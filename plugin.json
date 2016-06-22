@@ -1,19 +1,19 @@
 {
   "name": "ProtectTrackID",
   "version": "0.1.0",
-  "description": "A Piwik plugin that project track ID",
+  "description": "A Piwik plugin for you protect track ID",
+  "license": "GPL v3+",
+  "homepage": "https://github.com/joubertredrat/Piwik-ProtectTrackID",
   "theme": false,
   "require": {
-    "piwik": ">=2.16.2-b2"
+    "piwik": ">=2.16.2-b2",
+    "php": "5.4.0"
   },
   "authors": [
     {
-      "name": "Piwik",
-      "email": "",
-      "homepage": ""
+      "name": "Joubert RedRat",
+      "email": "me+piwik@redrat.com.br"
     }
   ],
-  "homepage": "",
-  "license": "GPL v3+",
-  "keywords": []
+  "keywords": ["hashid", "protectid"]
 }
