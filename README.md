@@ -6,7 +6,7 @@ A Piwik plugin for you protect track ID
 
 ## FAQ
 
-__Why isn't good to change salt more times__
+__Why isn't good to change salt more times?__
 
 Because if you change salt, hashed string will change too, then old hashes will not work. ONLY change salt if you will change all JavaScript Tracking Code or Image Tracking Link after.
 
