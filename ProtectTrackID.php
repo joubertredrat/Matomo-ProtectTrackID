@@ -5,7 +5,7 @@
  * @link http://piwik.org
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
  *
- * ProtectTrackID Settings
+ * ProtectTrackID Main class, responsible for hash and unhash idSite
  *
  * @copyright (c) 2016 Joubert RedRat
  * @author Joubert RedRat <eu+github@redrat.com.br>
@@ -16,14 +16,13 @@
 
 namespace Piwik\Plugins\ProtectTrackID;
 
-use Piwik\Piwik;
-
 class ProtectTrackID extends \Piwik\Plugin
 {
     /**
      * Base string for hash
      *
      * @var string
+     * @todo In future will be a Setting on Plugin Options
      */
     private $base = 'ABCDEFGHIJKLMNOPQRSTUVXWYZabcdefghijklmnopqrstuvxwyz1234567890';
 
@@ -42,7 +41,7 @@ class ProtectTrackID extends \Piwik\Plugin
     }
 
     /**
-     * Hash id
+     * Creates a hash from a integer id
      *
      * @param int $idSite
      * @return string
@@ -62,8 +61,8 @@ class ProtectTrackID extends \Piwik\Plugin
     /**
      * Hash id site for JavaScript Tracking Code
      *
-     * @param array &$codeImpls
-     * @param array &$parameters
+     * @param array &$codeImpl
+     * @param array $parameters
      * @return void
      */
     public function hashIdJavaScript(&$codeImpl, $parameters)
@@ -86,7 +85,7 @@ class ProtectTrackID extends \Piwik\Plugin
     /**
      * Unhash id site
      *
-     * @param int $idSite
+     * @param int &$idSite
      * @param array $params
      * @return void
      */
@@ -106,15 +105,13 @@ class ProtectTrackID extends \Piwik\Plugin
     }
 
     /**
-     * Verify if hash is valid
+     * Verify if hash is valid from settings
      *
      * @param string $hash
      * @return bool
      */
     public function validateHash($hash)
     {
-        require_once(__DIR__.'/vendor/autoload.php');
-
         $Settings = new Settings('ProtectTrackID');
 
         $lenght = $Settings->lenghtSetting->getValue();
