@@ -19,14 +19,6 @@ namespace Piwik\Plugins\ProtectTrackID;
 class ProtectTrackID extends \Piwik\Plugin
 {
     /**
-     * Base string for hash
-     *
-     * @var string
-     * @todo In future will be a Setting on Plugin Options
-     */
-    private $base = 'ABCDEFGHIJKLMNOPQRSTUVXWYZabcdefghijklmnopqrstuvxwyz1234567890';
-
-    /**
      * Register event observers
      *
      * @return array
@@ -44,17 +36,26 @@ class ProtectTrackID extends \Piwik\Plugin
      * Creates a hash from a integer id
      *
      * @param int $idSite
-     * @return string
+     * @return int|string
      */
     private function hashId($idSite)
     {
-        require_once(__DIR__.'/vendor/autoload.php');
-
         $Settings = new Settings('ProtectTrackID');
+        $base = $Settings->baseSetting->getValue();
         $salt = $Settings->saltSetting->getValue();
         $lenght = $Settings->lenghtSetting->getValue();
 
-        $Hashid = new \Hashids\Hashids($salt, $lenght, $this->base);
+        if (
+            is_null($base) || empty($base) ||
+            is_null($salt) || empty($salt) ||
+            is_null($lenght) || empty($lenght)
+        ) {
+            return $idSite;
+        }
+
+        require_once(__DIR__.'/vendor/autoload.php');
+
+        $Hashid = new \Hashids\Hashids($salt, $lenght, $base);
         return $Hashid->encode($idSite);
     }
 
@@ -96,10 +97,11 @@ class ProtectTrackID extends \Piwik\Plugin
 
             $Settings = new Settings('ProtectTrackID');
 
+            $base = $Settings->baseSetting->getValue();
             $salt = $Settings->saltSetting->getValue();
             $lenght = $Settings->lenghtSetting->getValue();
 
-            $Hashid = new \Hashids\Hashids($salt, $lenght, $this->base);
+            $Hashid = new \Hashids\Hashids($salt, $lenght, $base);
             $idSite = $Hashid->decode($params['idsite'])[0];
         }
     }
@@ -113,10 +115,19 @@ class ProtectTrackID extends \Piwik\Plugin
     public function validateHash($hash)
     {
         $Settings = new Settings('ProtectTrackID');
-
+        $base = $Settings->baseSetting->getValue();
+        $salt = $Settings->saltSetting->getValue();
         $lenght = $Settings->lenghtSetting->getValue();
 
-        $regex = '/^('.implode('|', str_split($this->base)).'){'.$lenght.'}$/';
+        if (
+            is_null($base) || empty($base) ||
+            is_null($salt) || empty($salt) ||
+            is_null($lenght) || empty($lenght)
+        ) {
+            return false;
+        }
+
+        $regex = '/^('.implode('|', str_split($base)).'){'.$lenght.'}$/';
         return (bool) preg_match($regex, $hash);
     }
 }
