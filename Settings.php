@@ -22,6 +22,13 @@ use Piwik\Settings\SystemSetting;
 class Settings extends \Piwik\Plugin\Settings
 {
     /**
+     * Regex for validation string base
+     *
+     * @var string
+     */
+    var $regex_base = '/^[a-zA-Z0-9]+$/';
+
+    /**
      * @see \Piwik\Plugin\Settings::init()
      */
     protected function init()
@@ -29,8 +36,30 @@ class Settings extends \Piwik\Plugin\Settings
         require(__DIR__.'/vendor/autoload.php');
         $this->setIntroduction(Piwik::translate('ProtectTrackID_SettingsDescription'));
 
+        $this->createBaseSetting();
         $this->createSaltSetting();
         $this->createLenghtSetting();
+    }
+
+    /**
+     * Create base setting
+     *
+     * @return void
+     */
+    private function createBaseSetting()
+    {
+        $this->baseSetting = new SystemSetting('baseSetting', Piwik::translate('ProtectTrackID_BaseLabel'));
+        $this->baseSetting->type = static::TYPE_STRING;
+        $this->baseSetting->uiControlAttributes = array('size' => 80);
+        $this->baseSetting->description = Piwik::translate('ProtectTrackID_BaseDescription');
+        $this->baseSetting->inlineHelp = Piwik::translate('ProtectTrackID_BaseHelp').' ABCDEFGHIJKLMNOPQRSTUVXWYZabcdefghijklmnopqrstuvxwyz1234567890';
+        $this->baseSetting->validate = function ($value, $setting) {
+            if ($value && !preg_match($this->regex_base, $value)) {
+                throw new \Exception(Piwik::translate('ProtectTrackID_ErrMsgWrongValue'));
+            }
+        };
+
+        $this->addSetting($this->baseSetting);
     }
 
     /**
@@ -42,15 +71,9 @@ class Settings extends \Piwik\Plugin\Settings
     {
         $this->saltSetting = new SystemSetting('saltSetting', Piwik::translate('ProtectTrackID_SaltLabel'));
         $this->saltSetting->type = static::TYPE_STRING;
-        $this->saltSetting->uiControlAttributes    = array('size' => 80);
+        $this->saltSetting->uiControlAttributes = array('size' => 80);
         $this->saltSetting->description = Piwik::translate('ProtectTrackID_SaltDescription');
-        $this->saltSetting->inlineHelp = Piwik::translate('ProtectTrackID_SaltHelp');
-        $this->saltSetting->defaultValue = \Ramsey\Uuid\Uuid::uuid4();
-        $this->saltSetting->validate = function ($value, $setting) {
-            if (!$value) {
-                throw new \Exception(Piwik::translate('ProtectTrackID_ErrMsgWrongValue'));
-            }
-        };
+        $this->saltSetting->inlineHelp = Piwik::translate('ProtectTrackID_SaltHelp').' '.\Ramsey\Uuid\Uuid::uuid4();
 
         $this->addSetting($this->saltSetting);
     }
@@ -65,11 +88,10 @@ class Settings extends \Piwik\Plugin\Settings
         $this->lenghtSetting = new SystemSetting('lenghtSetting', Piwik::translate('ProtectTrackID_LenghtLabel'));
         $this->lenghtSetting->type = static::TYPE_INT;
         $this->lenghtSetting->description = Piwik::translate('ProtectTrackID_LenghtDescription');
-        $this->lenghtSetting->inlineHelp = Piwik::translate('ProtectTrackID_LenghtHelp');
-        $this->lenghtSetting->defaultValue = 8;
+        $this->lenghtSetting->inlineHelp = Piwik::translate('ProtectTrackID_LenghtHelp').' 9';
         $this->lenghtSetting->validate = function ($value, $setting) {
-            if (!$value || $value < 3 || $value > 12) {
-                throw new \Exception(Piwik::translate('ProtectTrackID_ErrMsgWrongValue'));
+            if ($value && ($value < 5 || $value > 25)) {
+                    throw new \Exception(Piwik::translate('ProtectTrackID_ErrMsgWrongValue'));
             }
         };
 
