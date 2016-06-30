@@ -45,8 +45,7 @@ class ProtectTrackID extends \Piwik\Plugin
         $salt = $Settings->saltSetting->getValue();
         $lenght = $Settings->lenghtSetting->getValue();
 
-        if (
-            is_null($base) || empty($base) ||
+        if (is_null($base) || empty($base) ||
             is_null($salt) || empty($salt) ||
             is_null($lenght) || empty($lenght)
         ) {
@@ -119,8 +118,7 @@ class ProtectTrackID extends \Piwik\Plugin
         $salt = $Settings->saltSetting->getValue();
         $lenght = $Settings->lenghtSetting->getValue();
 
-        if (
-            is_null($base) || empty($base) ||
+        if (is_null($base) || empty($base) ||
             is_null($salt) || empty($salt) ||
             is_null($lenght) || empty($lenght)
         ) {

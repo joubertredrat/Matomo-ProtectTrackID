@@ -22,11 +22,18 @@ use Piwik\Settings\SystemSetting;
 class Settings extends \Piwik\Plugin\Settings
 {
     /**
+     * Base string example
+     *
+     * @var string
+     */
+    private $base_example = 'ABCDEFGHIJKLMNOPQRSTUVXWYZabcdefghijklmnopqrstuvxwyz1234567890';
+
+    /**
      * Regex for validation string base
      *
      * @var string
      */
-    var $regex_base = '/^[a-zA-Z0-9]+$/';
+    private $base_regex = '/^[a-zA-Z0-9]+$/';
 
     /**
      * @see \Piwik\Plugin\Settings::init()
@@ -50,11 +57,11 @@ class Settings extends \Piwik\Plugin\Settings
     {
         $this->baseSetting = new SystemSetting('baseSetting', Piwik::translate('ProtectTrackID_BaseLabel'));
         $this->baseSetting->type = static::TYPE_STRING;
-        $this->baseSetting->uiControlAttributes = array('size' => 80);
+        $this->baseSetting->uiControlAttributes = ['size' => 80];
         $this->baseSetting->description = Piwik::translate('ProtectTrackID_BaseDescription');
-        $this->baseSetting->inlineHelp = Piwik::translate('ProtectTrackID_BaseHelp').' ABCDEFGHIJKLMNOPQRSTUVXWYZabcdefghijklmnopqrstuvxwyz1234567890';
+        $this->baseSetting->inlineHelp = Piwik::translate('ProtectTrackID_BaseHelp').' '.$this->base_example;
         $this->baseSetting->validate = function ($value, $setting) {
-            if ($value && !preg_match($this->regex_base, $value)) {
+            if ($value && !preg_match($this->base_regex, $value)) {
                 throw new \Exception(Piwik::translate('ProtectTrackID_ErrMsgWrongValue'));
             }
         };
@@ -71,7 +78,7 @@ class Settings extends \Piwik\Plugin\Settings
     {
         $this->saltSetting = new SystemSetting('saltSetting', Piwik::translate('ProtectTrackID_SaltLabel'));
         $this->saltSetting->type = static::TYPE_STRING;
-        $this->saltSetting->uiControlAttributes = array('size' => 80);
+        $this->saltSetting->uiControlAttributes = ['size' => 80];
         $this->saltSetting->description = Piwik::translate('ProtectTrackID_SaltDescription');
         $this->saltSetting->inlineHelp = Piwik::translate('ProtectTrackID_SaltHelp').' '.\Ramsey\Uuid\Uuid::uuid4();
 
