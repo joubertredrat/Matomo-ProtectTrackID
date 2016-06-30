@@ -6,7 +6,7 @@
   "homepage": "https://github.com/joubertredrat/Piwik-ProtectTrackID",
   "theme": false,
   "require": {
-    "piwik": ">=2.16.2-b2",
+    "piwik": ">=2.16.2",
     "php": "5.4.0"
   },
   "authors": [
