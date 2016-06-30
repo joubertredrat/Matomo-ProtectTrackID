@@ -28,8 +28,8 @@ This plugin will hash siteId by configurations, but if you define small `base st
 
 ## Changelog
 
-* Version 0.1.1 - Beta version with base string on config
-* Version 0.1.0 - First version, alpha
+* Version 0.1.0 - Beta version with base string on config
+* Version beta - First version
 
 ## Support
 
