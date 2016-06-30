@@ -24,7 +24,7 @@ Plugin need 3 configurations, `base string`, `salt` and `lenght`.
 
 __Why JavaScript Tracking Code and Image Tracking Link is blank?__
 
-This plugin will hash siteId by configurations, but if you define small base string or lenght, plugin can't create hash string. Then you need incresease base string and/or lenght.
+This plugin will hash siteId by configurations, but if you define small `base string` or `lenght`, plugin can't create hash string. Then you need incresease `base string` and/or `lenght`.
 
 ## Changelog
 
