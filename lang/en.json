@@ -1,6 +1,6 @@
 {
     "ProtectTrackID": {
-        "PluginDescription": "Protect Track ID: A Piwik plugin that project track ID.",
+        "PluginDescription": "Provides a option to protect idSite using hash instead default numeric",
         "ProtectTrackID": "Protect Track ID",
         "SettingsDescription": "Settings for ProtectTrackID. If you are new with this plugin, IS VERY HIGHLY RECOMMENDED you see https://github.com/joubertredrat/Piwik-ProtectTrackID before configure.",
         "BaseLabel": "Base string",
@@ -11,7 +11,7 @@
         "SaltHelp": "Enter with a big random string. Example: ",
         "LengthLabel": "Length",
         "LengthDescription": "Hash string size",
-        "LengthHelp": "Enter a string length between 5 and 25. Example: ",
+        "LengthHelp": "Enter a length between 5 and 25. Example: ",
         "ErrMsgWrongValue": "Wrong input"
     }
 }

@@ -1,0 +1,17 @@
+{
+    "ProtectTrackID": {
+        "PluginDescription": "Fornece uma opção para proteger site usando de hash ao invés do padrão numérico",
+        "ProtectTrackID": "Protect Track ID",
+        "SettingsDescription": "Configurações para o ProtectTrackID. Se você é novo com este plugin, É EXTREMAMENTE RECOMENDADO você ler https://github.com/joubertredrat/Piwik-ProtectTrackID antes de configurar.",
+        "BaseLabel": "String base",
+        "BaseDescription": "String base Alfanumérica",
+        "BaseHelp": "Informe uma string Alfanumérica em letras maiúsculas e/ou minúsculas. Exemplo: ",
+        "SaltLabel": "Sal",
+        "SaltDescription": "String de embaralhamento para fazer o hash do id",
+        "SaltHelp": "Informe uma string grande e aleatória. Exemplo: ",
+        "LengthLabel": "Comprimento",
+        "LengthDescription": "Tamanho da string de hash",
+        "LengthHelp": "Informe um comprimento entre 5 e 25. Exemplo: ",
+        "ErrMsgWrongValue": "Valor informado inválido"
+    }
+}
