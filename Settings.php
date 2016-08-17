@@ -45,7 +45,7 @@ class Settings extends \Piwik\Plugin\Settings
 
         $this->createBaseSetting();
         $this->createSaltSetting();
-        $this->createLenghtSetting();
+        $this->createLengthSetting();
     }
 
     /**
@@ -90,18 +90,18 @@ class Settings extends \Piwik\Plugin\Settings
      *
      * @return void
      */
-    private function createLenghtSetting()
+    private function createLengthSetting()
     {
-        $this->lenghtSetting = new SystemSetting('lenghtSetting', Piwik::translate('ProtectTrackID_LenghtLabel'));
-        $this->lenghtSetting->type = static::TYPE_INT;
-        $this->lenghtSetting->description = Piwik::translate('ProtectTrackID_LenghtDescription');
-        $this->lenghtSetting->inlineHelp = Piwik::translate('ProtectTrackID_LenghtHelp').' 9';
-        $this->lenghtSetting->validate = function ($value, $setting) {
+        $this->lengthSetting = new SystemSetting('lengthSetting', Piwik::translate('ProtectTrackID_LengthLabel'));
+        $this->lengthSetting->type = static::TYPE_INT;
+        $this->lengthSetting->description = Piwik::translate('ProtectTrackID_LengthDescription');
+        $this->lengthSetting->inlineHelp = Piwik::translate('ProtectTrackID_LengthHelp').' 9';
+        $this->lengthSetting->validate = function ($value, $setting) {
             if ($value && ($value < 5 || $value > 25)) {
-                    throw new \Exception(Piwik::translate('ProtectTrackID_ErrMsgWrongValue'));
+                throw new \Exception(Piwik::translate('ProtectTrackID_ErrMsgWrongValue'));
             }
         };
 
-        $this->addSetting($this->lenghtSetting);
+        $this->addSetting($this->lengthSetting);
     }
 }

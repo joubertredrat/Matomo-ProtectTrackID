@@ -1,18 +1,17 @@
 {
     "ProtectTrackID": {
         "PluginDescription": "Protect Track ID: A Piwik plugin that project track ID.",
-	"ProtectTrackID": "Protect Track ID",
+        "ProtectTrackID": "Protect Track ID",
         "SettingsDescription": "Settings for ProtectTrackID. If you are new with this plugin, IS VERY HIGHLY RECOMMENDED you see https://github.com/joubertredrat/Piwik-ProtectTrackID before configure.",
-	"BaseLabel": "Base string",
-	"BaseDescription": "Alphanumeric base string",
-	"BaseHelp": "Enter a alphanumeric upcase and/or downcase. Example: ",
-	"SaltLabel": "Salt",
-	"SaltDescription": "Salt string for hash track ID",
-	"SaltHelp": "Enter with a big random string. Example: ",
-	"LenghtLabel": "Lenght",
-	"LenghtDescription": "Hash string size",
-	"LenghtHelp": "Enter a string lenght between 5 and 25. Example: ",
+        "BaseLabel": "Base string",
+        "BaseDescription": "Alphanumeric base string",
+        "BaseHelp": "Enter a alphanumeric upcase and/or downcase. Example: ",
+        "SaltLabel": "Salt",
+        "SaltDescription": "Salt string for hash track ID",
+        "SaltHelp": "Enter with a big random string. Example: ",
+        "LengthLabel": "Length",
+        "LengthDescription": "Hash string size",
+        "LengthHelp": "Enter a string length between 5 and 25. Example: ",
         "ErrMsgWrongValue": "Wrong input"
     }
 }
-

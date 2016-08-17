@@ -43,18 +43,18 @@ class ProtectTrackID extends \Piwik\Plugin
         $Settings = new Settings('ProtectTrackID');
         $base = $Settings->baseSetting->getValue();
         $salt = $Settings->saltSetting->getValue();
-        $lenght = $Settings->lenghtSetting->getValue();
+        $length = $Settings->lengthSetting->getValue();
 
         if (is_null($base) || empty($base) ||
             is_null($salt) || empty($salt) ||
-            is_null($lenght) || empty($lenght)
+            is_null($length) || empty($length)
         ) {
             return $idSite;
         }
 
         require_once(__DIR__.'/vendor/autoload.php');
 
-        $Hashid = new \Hashids\Hashids($salt, $lenght, $base);
+        $Hashid = new \Hashids\Hashids($salt, $length, $base);
         return $Hashid->encode($idSite);
     }
 
@@ -98,9 +98,9 @@ class ProtectTrackID extends \Piwik\Plugin
 
             $base = $Settings->baseSetting->getValue();
             $salt = $Settings->saltSetting->getValue();
-            $lenght = $Settings->lenghtSetting->getValue();
+            $length = $Settings->lengthSetting->getValue();
 
-            $Hashid = new \Hashids\Hashids($salt, $lenght, $base);
+            $Hashid = new \Hashids\Hashids($salt, $length, $base);
             $idSite = $Hashid->decode($params['idsite'])[0];
         }
     }
@@ -116,16 +116,16 @@ class ProtectTrackID extends \Piwik\Plugin
         $Settings = new Settings('ProtectTrackID');
         $base = $Settings->baseSetting->getValue();
         $salt = $Settings->saltSetting->getValue();
-        $lenght = $Settings->lenghtSetting->getValue();
+        $length = $Settings->lengthSetting->getValue();
 
         if (is_null($base) || empty($base) ||
             is_null($salt) || empty($salt) ||
-            is_null($lenght) || empty($lenght)
+            is_null($length) || empty($length)
         ) {
             return false;
         }
 
-        $regex = '/^('.implode('|', str_split($base)).'){'.$lenght.'}$/';
+        $regex = '/^('.implode('|', str_split($base)).'){'.$length.'}$/';
         return (bool) preg_match($regex, $hash);
     }
 }
