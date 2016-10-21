@@ -34,6 +34,11 @@ class ProtectTrackID extends \Piwik\Plugin
         ];
     }
 
+    /**
+     * Get plugin settings
+     *
+     * @return array
+     */
     private function getSettings()
     {
         $settings = StaticContainer::get('Piwik\Plugins\ProtectTrackID\SystemSettings');
