@@ -16,6 +16,8 @@
 
 namespace Piwik\Plugins\ProtectTrackID;
 
+use Piwik\Container\StaticContainer;
+
 class ProtectTrackID extends \Piwik\Plugin
 {
     /**
@@ -32,6 +34,17 @@ class ProtectTrackID extends \Piwik\Plugin
         ];
     }
 
+    private function getSettings()
+    {
+        $settings = StaticContainer::get('Piwik\Plugins\ProtectTrackID\SystemSettings');
+
+        return [
+            'base' => $settings->base->getValue(),
+            'salt' => $settings->salt->getValue(),
+            'length' => $settings->length->getValue()
+        ];
+    }
+
     /**
      * Creates a hash from a integer id
      *
@@ -40,10 +53,7 @@ class ProtectTrackID extends \Piwik\Plugin
      */
     private function hashId($idSite)
     {
-        $Settings = new Settings('ProtectTrackID');
-        $base = $Settings->baseSetting->getValue();
-        $salt = $Settings->saltSetting->getValue();
-        $length = $Settings->lengthSetting->getValue();
+        extract($this->getSettings());
 
         if (is_null($base) || empty($base) ||
             is_null($salt) || empty($salt) ||
@@ -94,11 +104,7 @@ class ProtectTrackID extends \Piwik\Plugin
         if ($this->validateHash($params['idsite'])) {
             require_once(__DIR__.'/vendor/autoload.php');
 
-            $Settings = new Settings('ProtectTrackID');
-
-            $base = $Settings->baseSetting->getValue();
-            $salt = $Settings->saltSetting->getValue();
-            $length = $Settings->lengthSetting->getValue();
+            extract($this->getSettings());
 
             $Hashid = new \Hashids\Hashids($salt, $length, $base);
             $idSite = $Hashid->decode($params['idsite'])[0];
@@ -113,10 +119,7 @@ class ProtectTrackID extends \Piwik\Plugin
      */
     public function validateHash($hash)
     {
-        $Settings = new Settings('ProtectTrackID');
-        $base = $Settings->baseSetting->getValue();
-        $salt = $Settings->saltSetting->getValue();
-        $length = $Settings->lengthSetting->getValue();
+        extract($this->getSettings());
 
         if (is_null($base) || empty($base) ||
             is_null($salt) || empty($salt) ||
