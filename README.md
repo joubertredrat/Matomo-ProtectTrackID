@@ -28,6 +28,8 @@ This plugin will hash siteId by configurations, but if you define small `base st
 
 ## Changelog
 
+This project follows the guidelines of [semantic versioning](http://semver.org).
+
 * Version 1.0.0 - New major version for new Piwik Major version, 3.0.0
 * Version 0.2.2 - Restrict Plugin only for Piwik 2.X.X
 * Version 0.2.0 - Production version, Portuguese Brazilian language added.
