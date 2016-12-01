@@ -1,12 +1,12 @@
 {
   "name": "ProtectTrackID",
-  "version": "0.2.2",
+  "version": "1.0.0",
   "description": "Provides a option to protect idSite using hash instead default numeric",
   "license": "GPL v3+",
   "homepage": "https://github.com/joubertredrat/Piwik-ProtectTrackID",
   "theme": false,
   "require": {
-    "piwik": ">=2.16.2,<3.0.0-b1",
+    "piwik": ">=3.0.0-b1,<4.0.0-b1",
     "php": ">=5.4.0"
   },
   "authors": [
