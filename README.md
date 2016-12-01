@@ -26,6 +26,11 @@ __Why JavaScript Tracking Code and Image Tracking Link is blank?__
 
 This plugin will hash siteId by configurations, but if you define small `base string`, `salt` or `length`, plugin wont haven't combinations enough for create hash string. Then you need incresease `base string`, `salt` and/or `length`.
 
+__If I install this plugin I need to change track code for all sites or old track code still will work?__ Thanks [@yurgon](https://github.com/yurgon) for the question.
+
+You can install and set plugin configuration, old tracking code will work without problems because plugin validates tracking `siteId` with plugin settings to set if `siteId` is hashed id or normal numeric id. But is necessary attention, because although old tracking code will continue work, Piwik will display only new tracking code.
+
+
 ## Changelog
 
 This project follows the guidelines of [semantic versioning](http://semver.org).
