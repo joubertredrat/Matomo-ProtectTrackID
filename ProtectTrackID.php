@@ -28,7 +28,7 @@ class ProtectTrackID extends \Piwik\Plugin
     public function registerEvents()
     {
         return [
-            'Piwik.getJavascriptCode' => 'hashIdJavaScript',
+            'Tracker.getJavascriptCode' => 'hashIdJavaScript',
             'SitesManager.getImageTrackingCode' => 'hashIdImage',
             'Tracker.Request.getIdSite' => 'unhashId'
         ];
