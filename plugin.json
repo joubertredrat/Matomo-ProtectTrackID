@@ -1,9 +1,9 @@
 {
   "name": "ProtectTrackID",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Provides a option to protect idSite using hash instead default numeric",
   "license": "GPL v3+",
-  "homepage": "https://github.com/joubertredrat/Piwik-ProtectTrackID",
+  "homepage": "https://github.com/joubertredrat/Matomo-ProtectTrackID",
   "theme": false,
   "require": {
     "piwik": ">=3.0.0-b1,<4.0.0-b1",
@@ -12,7 +12,7 @@
   "authors": [
     {
       "name": "Joubert RedRat",
-      "email": "me+piwik@redrat.com.br"
+      "email": "eu+matomo@redrat.com.br"
     }
   ],
   "keywords": ["hashid", "protectid"]
