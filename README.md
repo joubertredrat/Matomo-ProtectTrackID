@@ -1,8 +1,8 @@
-# Piwik ProtectTrackID Plugin
+# Matomo ProtectTrackID Plugin
 
 ## Description
 
-Provides a option to protect idSite using hash instead default numeric
+Provides a option to protect idSite using hash instead default numeric. This plugin was formerly Piwik Protect TrackID.
 
 ## FAQ
 
@@ -28,18 +28,19 @@ This plugin will hash siteId by configurations, but if you define small `base st
 
 __If I install this plugin I need to change track code for all sites or old track code still will work?__ Thanks [@yurgon](https://github.com/yurgon) for the question.
 
-You can install and set plugin configuration, old tracking code will work without problems because plugin validates tracking `siteId` with plugin settings to set if `siteId` is hashed id or normal numeric id. But is necessary attention, because although old tracking code will continue work, Piwik will display only new tracking code.
+You can install and set plugin configuration, old tracking code will work without problems because plugin validates tracking `siteId` with plugin settings to set if `siteId` is hashed id or normal numeric id. But is necessary attention, because although old tracking code will continue work, Matomo will display only new tracking code.
 
 
 ## Changelog
 
 This project follows the guidelines of [semantic versioning](http://semver.org).
 
-* Version 1.0.0 - New major version for new Piwik Major version, 3.0.0
-* Version 0.2.2 - Restrict Plugin only for Piwik 2.X.X
+* Version 1.1.0 - Just freezing plugin for old Matomo 3.X
+* Version 1.0.0 - New major version for new Matomo 3.X
+* Version 0.2.2 - Restrict Plugin only for Piwik 2.X
 * Version 0.2.0 - Production version, Portuguese Brazilian language added.
 * Version 0.1.0 - Beta version with base string on config.
 
 ## Support
 
-Want support? Here in https://github.com/joubertredrat/Piwik-ProtectTrackID/issues
+Want support? Here in https://github.com/joubertredrat/Matomo-ProtectTrackID/issues
