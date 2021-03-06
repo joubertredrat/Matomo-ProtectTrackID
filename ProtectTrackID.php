@@ -1,15 +1,15 @@
 <?php
 /**
- * Piwik - Open source web analytics
+ * Matomo - Open source web analytics
  *
- * @link http://piwik.org
+ * @link https://matomo.org
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
  *
  * ProtectTrackID Main class, responsible for hash and unhash idSite
  *
  * @copyright (c) 2016 Joubert RedRat
  * @author Joubert RedRat <eu+github@redrat.com.br>
- * @license http://www.gnu.org/licenses/gpl-3.0.html GPLv3
+ * @license MIT
  * @category Piwik_Plugins
  * @package ProtectTrackID
  */
@@ -28,7 +28,7 @@ class ProtectTrackID extends \Piwik\Plugin
     public function registerEvents()
     {
         return [
-            'Piwik.getJavascriptCode' => 'hashIdJavaScript',
+            'Tracker.getJavascriptCode' => 'hashIdJavaScript',
             'SitesManager.getImageTrackingCode' => 'hashIdImage',
             'Tracker.Request.getIdSite' => 'unhashId'
         ];
