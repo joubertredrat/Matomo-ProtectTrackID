@@ -33,14 +33,8 @@ You can install and set plugin configuration, old tracking code will work withou
 
 ## Changelog
 
-This project follows the guidelines of [semantic versioning](http://semver.org).
-
-* Version 1.1.0 - Just freezing plugin for old Matomo 3.X
-* Version 1.0.0 - New major version for new Matomo 3.X
-* Version 0.2.2 - Restrict Plugin only for Piwik 2.X
-* Version 0.2.0 - Production version, Portuguese Brazilian language added.
-* Version 0.1.0 - Beta version with base string on config.
+See [releases](https://github.com/joubertredrat/Matomo-ProtectTrackID/releases). This project follows the guidelines of [semantic versioning](http://semver.org).
 
 ## Support
 
-Want support? Here in https://github.com/joubertredrat/Matomo-ProtectTrackID/issues
+Want support? Check our issues in https://github.com/joubertredrat/Matomo-ProtectTrackID/issues
