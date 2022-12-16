@@ -1,7 +1,7 @@
 {
-    "require": {
-        "php": ">=7.2",
-        "hashids/hashids": "^1.0",
-        "ramsey/uuid": "^3.4"
-    }
+  "require": {
+    "php": ">=7.2.5",
+    "hashids/hashids": "^4.1",
+    "ramsey/uuid": "^4.6"
+  }
 }
