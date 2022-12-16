@@ -65,7 +65,7 @@ class SystemSettings extends \Piwik\Settings\Plugin\SystemSettings
      */
     protected function init()
     {
-        require(__DIR__.'/vendor/autoload.php');
+        require(__DIR__ . '/vendor/autoload.php');
 
         $this->base = $this->createBaseSetting();
         $this->salt = $this->createSaltSetting();
