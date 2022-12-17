@@ -10,7 +10,7 @@
  * @copyright (c) 2016 Joubert RedRat
  * @author Joubert RedRat <eu+github@redrat.com.br>
  * @license MIT
- * @category Piwik_Plugins
+ * @category Matomo_Plugins
  * @package ProtectTrackID
  */
 
