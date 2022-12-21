@@ -2,6 +2,6 @@
   "require": {
     "php": ">=7.3.5",
     "hashids/hashids": "^4.1",
-    "ramsey/uuid": "^4.6"
+    "ramsey/uuid": "4.2.3"
   }
 }
