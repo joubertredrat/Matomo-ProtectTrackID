@@ -8,7 +8,7 @@
  * API Main class, responsible for plugin provide API methods
  *
  * @copyright (c) 2022 Joubert RedRat
- * @author Joubert RedRat <eu+github@redrat.com.br>
+ * @author Joubert RedRat <eu+matomo@redrat.com.br>
  * @license MIT
  * @category Matomo_Plugins
  * @package ProtectTrackID
@@ -16,8 +16,6 @@
 
  namespace Piwik\Plugins\ProtectTrackID;
 
- use Hashids\Hashids;
- use Piwik\Container\StaticContainer;
  use Piwik\Piwik;
  use Piwik\Plugin\API as PluginAPI;
 
@@ -28,25 +26,16 @@
  */
 class API extends PluginAPI
 {
-    public function getHashedID(int $idSite): string
+    public function getHashedId(int $idSite): string
     {
         Piwik::checkUserHasSomeViewAccess();
 
-        $settings = StaticContainer::get(SystemSettings::class);
-        $base = $settings->base->getValue();
-        $salt = $settings->salt->getValue();
-        $length = $settings->length->getValue();
-
-        if (is_null($base) || empty($base) ||
-            is_null($salt) || empty($salt) ||
-            is_null($length) || empty($length)
-        ) {
+        $settings = PluginSettings::createFromSettings();
+        if (!$settings->hasValidValues()) {
             return $idSite;
         }
 
-        require_once(__DIR__ . '/vendor/autoload.php');
-
-        $hashid = new Hashids($salt, $length, $base);
-        return $hashid->encode($idSite);
+        $hasher = new Hasher($settings);
+        return $hasher->encode((string) $idSite);
     }
 }

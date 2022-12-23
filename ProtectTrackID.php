@@ -8,7 +8,7 @@
  * ProtectTrackID Main class, responsible for hash and unhash idSite
  *
  * @copyright (c) 2016 Joubert RedRat
- * @author Joubert RedRat <eu+github@redrat.com.br>
+ * @author Joubert RedRat <eu+matomo@redrat.com.br>
  * @license MIT
  * @category Matomo_Plugins
  * @package ProtectTrackID
@@ -16,124 +16,59 @@
 
 namespace Piwik\Plugins\ProtectTrackID;
 
-use Piwik\Container\StaticContainer;
+use Piwik\Plugin;
 
-class ProtectTrackID extends \Piwik\Plugin
+class ProtectTrackID extends Plugin
 {
-    /**
-     * Register event observers
-     *
-     * @return array
-     */
-    public function registerEvents()
+    public function registerEvents(): array
     {
         return [
-            'Tracker.getJavascriptCode' => 'hashIdJavaScript',
-            'SitesManager.getImageTrackingCode' => 'hashIdImage',
-            'Tracker.Request.getIdSite' => 'unhashId'
+            'Tracker.getJavascriptCode' => 'encodeIdJavaScript',
+            'SitesManager.getImageTrackingCode' => 'encodeIdImage',
+            'Tracker.Request.getIdSite' => 'decodeId',
         ];
     }
 
-    /**
-     * Get plugin settings
-     *
-     * @return array
-     */
-    private function getSettings()
+    public function encodeIdJavaScript(&$codeImpl, $parameters): void
     {
-        $settings = StaticContainer::get('Piwik\Plugins\ProtectTrackID\SystemSettings');
+        $settings = PluginSettings::createFromSettings();
+        $hasher = new Hasher($settings);
 
-        return [
-            'base' => $settings->base->getValue(),
-            'salt' => $settings->salt->getValue(),
-            'length' => $settings->length->getValue()
-        ];
+        $codeImpl['idSite'] = $hasher->encode($codeImpl['idSite']);
     }
 
-    /**
-     * Creates a hash from a integer id
-     *
-     * @param int $idSite
-     * @return int|string
-     */
-    private function hashId($idSite)
+    public function encodeIdImage(&$piwikUrl, &$urlParams): void
     {
-        extract($this->getSettings());
+        $settings = PluginSettings::createFromSettings();
+        $hasher = new Hasher($settings);
 
-        if (is_null($base) || empty($base) ||
-            is_null($salt) || empty($salt) ||
-            is_null($length) || empty($length)
-        ) {
-            return $idSite;
+        $urlParams['idsite'] = $hasher->encode($urlParams['idsite']);
+    }
+
+    public function decodeId(&$idSite, $params): void
+    {
+        $settings = PluginSettings::createFromSettings();
+
+        if (!$this->isValidHash($settings, $params['idsite'])) {
+            return;
         }
 
-        require_once(__DIR__.'/vendor/autoload.php');
-
-        $Hashid = new \Hashids\Hashids($salt, $length, $base);
-        return $Hashid->encode($idSite);
+        $hasher = new Hasher($settings);
+        $idSite = $hasher->decode($params['idsite']);
     }
 
-    /**
-     * Hash id site for JavaScript Tracking Code
-     *
-     * @param array &$codeImpl
-     * @param array $parameters
-     * @return void
-     */
-    public function hashIdJavaScript(&$codeImpl, $parameters)
+    public function isValidHash(PluginSettings $settings, string $hash): bool
     {
-        $codeImpl['idSite'] = $this->hashId($codeImpl['idSite']);
-    }
-
-    /**
-     * Hash id site for Image Tracking Link
-     *
-     * @param array &$piwikUrl
-     * @param array &$urlParams
-     * @return void
-     */
-    public function hashIdImage(&$piwikUrl, &$urlParams)
-    {
-        $urlParams['idsite'] = $this->hashId($urlParams['idsite']);
-    }
-
-    /**
-     * Unhash id site
-     *
-     * @param int &$idSite
-     * @param array $params
-     * @return void
-     */
-    public function unhashId(&$idSite, $params)
-    {
-        if ($this->validateHash($params['idsite'])) {
-            require_once(__DIR__.'/vendor/autoload.php');
-
-            extract($this->getSettings());
-
-            $Hashid = new \Hashids\Hashids($salt, $length, $base);
-            $idSite = $Hashid->decode($params['idsite'])[0];
-        }
-    }
-
-    /**
-     * Verify if hash is valid from settings
-     *
-     * @param string $hash
-     * @return bool
-     */
-    public function validateHash($hash)
-    {
-        extract($this->getSettings());
-
-        if (is_null($base) || empty($base) ||
-            is_null($salt) || empty($salt) ||
-            is_null($length) || empty($length)
-        ) {
+        if (!$settings->hasValidValues()) {
             return false;
         }
 
-        $regex = '/^('.implode('|', str_split($base)).'){'.$length.'}$/';
+        $regex = sprintf(
+            '/^(%s){%s}$/',
+            implode('|', str_split($settings->base)),
+            $settings->length,
+        );
+
         return (bool) preg_match($regex, $hash);
     }
 }
