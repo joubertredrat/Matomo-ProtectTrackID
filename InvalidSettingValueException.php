@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * Matomo - Open source web analytics
  *
@@ -16,6 +14,8 @@ declare(strict_types=1);
  * @category Matomo_Plugins
  * @package ProtectTrackID
  */
+
+declare(strict_types=1);
 
 namespace Piwik\Plugins\ProtectTrackID;
 

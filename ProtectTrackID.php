@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Matomo - Open source web analytics
  *

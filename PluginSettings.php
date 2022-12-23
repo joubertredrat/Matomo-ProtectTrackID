@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * Matomo - Open source web analytics
  *
@@ -17,15 +15,17 @@ declare(strict_types=1);
  * @package ProtectTrackID
  */
 
+declare(strict_types=1);
+
 namespace Piwik\Plugins\ProtectTrackID;
 
 use Piwik\Container\StaticContainer;
 
 class PluginSettings
 {
-    const BASE_REGEX = '/^[a-zA-Z0-9]+$/';
-    const MIN_LENGTH = 5;
-    const MAX_LENGTH = 25;
+    public const BASE_REGEX = '/^[a-zA-Z0-9]+$/';
+    public const MIN_LENGTH = 5;
+    public const MAX_LENGTH = 25;
 
     public string $base;
     public string $salt;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Matomo - Open source web analytics
  *
@@ -24,7 +25,7 @@ use Ramsey\Uuid\Uuid;
 
 class SystemSettings extends MatomoPluginSystemSettings
 {
-    const BASE_EXAMPLE = 'ABCDEFGHIJKLMNOPijklmnopqrstuvxwyz12345';
+    public const BASE_EXAMPLE = 'ABCDEFGHIJKLMNOPijklmnopqrstuvxwyz12345';
 
     public Setting $base;
     public Setting $salt;
