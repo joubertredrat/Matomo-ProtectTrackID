@@ -29,7 +29,7 @@
  */
 class API extends PluginAPI
 {
-    public function getHashedId(int $idSite): string
+    public function getHashedId(int $idSite)
     {
         Piwik::checkUserHasSomeViewAccess();
 

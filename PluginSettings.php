@@ -27,11 +27,11 @@ class PluginSettings
     public const MIN_LENGTH = 5;
     public const MAX_LENGTH = 25;
 
-    public string $base;
-    public string $salt;
-    public int $length;
+    public ?string $base;
+    public ?string $salt;
+    public ?int $length;
 
-    public function __construct(string $base, string $salt, int $length)
+    public function __construct(?string $base, ?string $salt, ?int $length)
     {
         $this->base = $base;
         $this->salt = $salt;
