@@ -1,0 +1,17 @@
+{
+    "ProtectTrackID": {
+        "BaseDescription": "Cadena base alfanumèrica",
+        "BaseHelp": "Introduïu una majúscula i/o una minúscula alfanumèrica. Exemple: ",
+        "BaseLabel": "Cadena base",
+        "ErrMsgWrongValue": "Entrada incorrecta",
+        "LengthDescription": "Mida de la cadena hash",
+        "LengthHelp": "Introduïu una llargada entre 5 i 25. Exemple: ",
+        "LengthLabel": "Llargada",
+        "PluginDescription": "Proporciona una opció per protegir idSite utilitzant hash en lloc d'un numèric predeterminat",
+        "ProtectTrackID": "Protegir Track ID",
+        "SaltDescription": "Cadena de sal per al hash de track ID",
+        "SaltHelp": "Entra amb una cadena aleatòria gran. Exemple: ",
+        "SaltLabel": "Sal",
+        "SettingsDescription": "Configuració de ProtectTrackID. Si sou nou amb aquest connector, ÉS MOLT RECOMANAT que vegeu https://github.com/joubertredrat/Piwik-ProtectTrackID abans de configurar-lo."
+    }
+}
