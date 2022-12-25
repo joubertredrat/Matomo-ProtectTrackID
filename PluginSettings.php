@@ -24,6 +24,7 @@ use Piwik\Container\StaticContainer;
 class PluginSettings
 {
     public const BASE_REGEX = '/^[a-zA-Z0-9]+$/';
+    public const SALT_MIN_LENGTH = 10;
     public const MIN_LENGTH = 5;
     public const MAX_LENGTH = 25;
 
@@ -56,6 +57,11 @@ class PluginSettings
     public static function isValidBase(string $base): bool
     {
         return (bool) preg_match(self::BASE_REGEX, $base);
+    }
+
+    public static function isValidSalt(string $salt): bool
+    {
+        return mb_strlen($salt) >= self::SALT_MIN_LENGTH;
     }
 
     public static function isValidLenght(int $length): bool

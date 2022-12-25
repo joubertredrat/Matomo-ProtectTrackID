@@ -26,15 +26,23 @@ class InvalidSettingValueException extends InvalidArgumentException
     public static function handleBase(string $baseGot): self
     {
         return new self(sprintf(
-            'Invalid value on Base, was filled %s.',
+            'Invalid value on base, was filled %1$s.',
             $baseGot,
+        ));
+    }
+
+    public static function handleSalt(string $saltGot): self
+    {
+        return new self(sprintf(
+            'Invalid value on salt, was filled %1$s.',
+            $saltGot,
         ));
     }
 
     public static function handleLenght(int $lengthMinExpected, int $lengthMaxExpected, int $lengthGot): self
     {
         return new self(sprintf(
-            'Invalid value on Length, expected between %d and %d, was filled %d.',
+            'Invalid value on length, expected between %1$d and %2$d, was filled %3$d.',
             $lengthMinExpected,
             $lengthMaxExpected,
             $lengthGot,

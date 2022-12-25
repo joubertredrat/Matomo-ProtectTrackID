@@ -1,17 +1,19 @@
 {
-    "ProtectTrackID": {
-        "PluginDescription": "Provides a option to protect idSite using hash instead default numeric",
-        "ProtectTrackID": "Protect Track ID",
-        "SettingsDescription": "Settings for ProtectTrackID. If you are new with this plugin, IS VERY HIGHLY RECOMMENDED you see https://github.com/joubertredrat/Piwik-ProtectTrackID before configure.",
-        "BaseLabel": "Base string",
-        "BaseDescription": "Alphanumeric base string",
-        "BaseHelp": "Enter a alphanumeric upcase and/or downcase. Example: ",
-        "SaltLabel": "Salt",
-        "SaltDescription": "Salt string for hash track ID",
-        "SaltHelp": "Enter with a big random string. Example: ",
-        "LengthLabel": "Length",
-        "LengthDescription": "Hash string size",
-        "LengthHelp": "Enter a length between 5 and 25. Example: ",
-        "ErrMsgWrongValue": "Wrong input"
-    }
+  "ProtectTrackID": {
+    "PluginDescription": "Provides a option to protect idSite using hash instead default numeric",
+    "ProtectTrackID": "Protect Track ID",
+    "SettingsDescription": "Settings for ProtectTrackID. If you are new with this plugin, IS VERY HIGHLY RECOMMENDED to you read documentation in https://github.com/joubertredrat/Matomo-ProtectTrackID before configure.",
+    "BaseLabel": "Base string",
+    "BaseDescription": "Alphanumeric base string",
+    "BaseHelp": "Enter a alphanumeric upcase and/or downcase, symbols is not allowed. Example: %1$s",
+    "SaltLabel": "Salt",
+    "SaltDescription": "Salt string for hash siteId",
+    "SaltHelp": "Enter with a big random string with minimum %1$d characters. Example: %2$s",
+    "LengthLabel": "Length",
+    "LengthDescription": "Hash string size",
+    "LengthHelp": "Enter a length between %1$d and %2$d. Example: 15",
+    "ErrMsgInvalidBase": "Invalid value on base, was filled %1$s.",
+    "ErrMsgInvalidSalt": "Invalid value on salt, was filled %1$s.",
+    "ErrMsgInvalidLenght": "Invalid value on length, expected between %1$d and %2$d, was filled %3$d."
+  }
 }

@@ -47,7 +47,7 @@ class SystemSettings extends MatomoPluginSystemSettings
             $field->uiControl = FieldConfig::UI_CONTROL_TEXT;
             $field->introduction = 'Alphanumeric base string';
             $field->description = sprintf(
-                'Enter a alphanumeric upcase and/or downcase, symbols is not allowed. Example: %s',
+                'Enter a alphanumeric upcase and/or downcase, symbols is not allowed. Example: %1$s',
                 self::BASE_EXAMPLE,
             );
             $field->validate = function (string $value) {
@@ -65,7 +65,16 @@ class SystemSettings extends MatomoPluginSystemSettings
             $field->uiControl = FieldConfig::UI_CONTROL_TEXT;
             $field->uiControlAttributes = ['size' => 80];
             $field->introduction = 'Salt string for hash siteId';
-            $field->description = 'Enter with a big random string. Example: ' . Uuid::uuid4();
+            $field->description = sprintf(
+                'Enter with a big random string with minimum %1$d characters. Example: %2$s',
+                PluginSettings::SALT_MIN_LENGTH,
+                Uuid::uuid4(),
+            );
+            $field->validate = function (string $value) {
+                if ($value && !PluginSettings::isValidSalt($value)) {
+                    throw InvalidSettingValueException::handleSalt($value);
+                }
+            };
         });
     }
 
@@ -76,7 +85,7 @@ class SystemSettings extends MatomoPluginSystemSettings
             $field->uiControl = FieldConfig::UI_CONTROL_TEXT;
             $field->introduction = 'Hash string size';
             $field->description = sprintf(
-                'Enter a length between %d and %d. Example: 15',
+                'Enter a length between %1$d and %2$d. Example: 15',
                 PluginSettings::MIN_LENGTH,
                 PluginSettings::MAX_LENGTH,
             );
