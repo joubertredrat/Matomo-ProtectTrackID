@@ -1,128 +1,99 @@
 <?php
+
 /**
- * Piwik - Open source web analytics
+ * Matomo - Open source web analytics
  *
- * @link http://piwik.org
+ * @link https://matomo.org
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
  *
- * ProtectTrackID Settings
- *
  * @copyright (c) 2016 Joubert RedRat
- * @author Joubert RedRat <eu+github@redrat.com.br>
- * @license http://www.gnu.org/licenses/gpl-3.0.html GPLv3
- * @category Piwik_Plugins
+ * @author Joubert RedRat <eu+matomo@redrat.com.br>
+ * @license MIT
+ * @category Matomo_Plugins
  * @package ProtectTrackID
  */
 
 namespace Piwik\Plugins\ProtectTrackID;
 
-use Piwik\API\Request;
-use Piwik\Common;
-use Exception;
 use Piwik\Settings\Setting;
 use Piwik\Settings\FieldConfig;
-use Piwik\UrlHelper;
+use Piwik\Settings\Plugin\SystemSetting;
+use Piwik\Settings\Plugin\SystemSettings as MatomoPluginSystemSettings;
+use Ramsey\Uuid\Uuid;
 
-class SystemSettings extends \Piwik\Settings\Plugin\SystemSettings
+class SystemSettings extends MatomoPluginSystemSettings
 {
-    /**
-     * Base string example
-     *
-     * @var string
-     */
-    private $base_example = 'ABCDEFGHIJKLMNOPijklmnopqrstuvxwyz12345';
+    public const BASE_EXAMPLE = 'ABCDEFGHIJKLMNOPijklmnopqrstuvxwyz12345';
 
-    /**
-     * Regex for validation string base
-     *
-     * @var string
-     */
-    private $base_regex = '/^[a-zA-Z0-9]+$/';
+    public Setting $base;
+    public Setting $salt;
+    public Setting $length;
 
-    /**
-     * Base setting
-     *
-     * @var Setting
-     */
-    public $base;
-
-    /**
-     * Salt setting
-     *
-     * @var Setting
-     */
-    public $salt;
-
-    /**
-     * Length setting
-     *
-     * @var Setting
-     */
-    public $length;
-
-    /**
-     * @see Piwik\Settings\Plugin\SystemSettings
-     */
-    protected function init()
+    protected function init(): void
     {
-        require(__DIR__ . '/vendor/autoload.php');
+        require_once(__DIR__ . '/vendor/autoload.php');
 
         $this->base = $this->createBaseSetting();
         $this->salt = $this->createSaltSetting();
         $this->length = $this->createLengthSetting();
     }
 
-    /**
-     * Create base setting
-     *
-     * @return SystemSetting
-     */
-    private function createBaseSetting()
+    private function createBaseSetting(): SystemSetting
     {
         return $this->makeSetting('baseSetting', null, FieldConfig::TYPE_STRING, function (FieldConfig $field) {
             $field->title = 'Base string';
             $field->uiControl = FieldConfig::UI_CONTROL_TEXT;
             $field->introduction = 'Alphanumeric base string';
-            $field->description = 'Enter a alphanumeric upcase and/or downcase. Example:  '.$this->base_example;
-            $field->validate = function ($value) {
-                if ($value && !preg_match($this->base_regex, $value)) {
-                    throw new \Exception('Wrong input on Base string');
+            $field->description = sprintf(
+                'Enter a alphanumeric upcase and/or downcase, symbols is not allowed. Example: %1$s',
+                self::BASE_EXAMPLE,
+            );
+            $field->validate = function (string $value) {
+                if ($value && !PluginSettings::isValidBase($value)) {
+                    throw InvalidSettingValueException::handleBase($value);
                 }
             };
         });
     }
 
-    /**
-     * Create salt setting
-     *
-     * @return SystemSetting
-     */
-    private function createSaltSetting()
+    private function createSaltSetting(): SystemSetting
     {
         return $this->makeSetting('saltSetting', null, FieldConfig::TYPE_STRING, function (FieldConfig $field) {
             $field->title = 'Salt';
             $field->uiControl = FieldConfig::UI_CONTROL_TEXT;
             $field->uiControlAttributes = ['size' => 80];
             $field->introduction = 'Salt string for hash siteId';
-            $field->description = 'Enter with a big random string. Example: '.\Ramsey\Uuid\Uuid::uuid4();
+            $field->description = sprintf(
+                'Enter with a big random string with minimum %1$d characters. Example: %2$s',
+                PluginSettings::SALT_MIN_LENGTH,
+                Uuid::uuid4(),
+            );
+            $field->validate = function (string $value) {
+                if ($value && !PluginSettings::isValidSalt($value)) {
+                    throw InvalidSettingValueException::handleSalt($value);
+                }
+            };
         });
     }
 
-    /**
-     * Create length setting
-     *
-     * @return SystemSetting
-     */
-    private function createLengthSetting()
+    private function createLengthSetting(): SystemSetting
     {
         return $this->makeSetting('lengthSetting', null, FieldConfig::TYPE_INT, function (FieldConfig $field) {
             $field->title = 'Length';
             $field->uiControl = FieldConfig::UI_CONTROL_TEXT;
             $field->introduction = 'Hash string size';
-            $field->description = 'Enter a length between 5 and 25. Example: 10';
-            $field->validate = function ($value) {
-                if ($value && ($value < 5 || $value > 25)) {
-                    throw new \Exception('Wrong input on Length');
+            $field->description = sprintf(
+                'Enter a length between %1$d and %2$d. Example: 15',
+                PluginSettings::MIN_LENGTH,
+                PluginSettings::MAX_LENGTH,
+            );
+            $field->validate = function (string $value) {
+                if ($value && !PluginSettings::isValidLenght((int) $value)) {
+                    throw InvalidSettingValueException::handleLenght(
+                        PluginSettings::MIN_LENGTH,
+                        PluginSettings::MAX_LENGTH,
+                        (int) $value,
+                    );
                 }
             };
         });
