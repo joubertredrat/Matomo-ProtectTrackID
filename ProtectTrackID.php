@@ -31,6 +31,9 @@ class ProtectTrackID extends Plugin
     public function encodeIdJavaScript(&$codeImpl, $parameters): void
     {
         $settings = PluginSettings::createFromSettings();
+        if (!$settings->hasValidValues()) {
+            return;
+        }
         $hasher = new Hasher($settings);
 
         $codeImpl['idSite'] = $hasher->encode($codeImpl['idSite']);
@@ -39,6 +42,9 @@ class ProtectTrackID extends Plugin
     public function encodeIdImage(&$piwikUrl, &$urlParams): void
     {
         $settings = PluginSettings::createFromSettings();
+        if (!$settings->hasValidValues()) {
+            return;
+        }
         $hasher = new Hasher($settings);
 
         $urlParams['idsite'] = $hasher->encode($urlParams['idsite']);
@@ -47,6 +53,9 @@ class ProtectTrackID extends Plugin
     public function decodeId(&$idSite, $params): void
     {
         $settings = PluginSettings::createFromSettings();
+        if (!$settings->hasValidValues()) {
+            return;
+        }
 
         if (!$this->isValidHash($settings, $params['idsite'])) {
             return;
@@ -58,10 +67,6 @@ class ProtectTrackID extends Plugin
 
     public function isValidHash(PluginSettings $settings, string $hash): bool
     {
-        if (!$settings->hasValidValues()) {
-            return false;
-        }
-
         $regex = sprintf(
             '/^(%s){%s}$/',
             implode('|', str_split($settings->base)),
