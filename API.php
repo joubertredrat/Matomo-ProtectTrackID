@@ -6,8 +6,6 @@
  * @link https://matomo.org
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
  *
- * API Main class, responsible for plugin provide API methods
- *
  * @copyright (c) 2022 Joubert RedRat
  * @author Joubert RedRat <eu+matomo@redrat.com.br>
  * @license MIT

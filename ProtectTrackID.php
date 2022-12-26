@@ -6,8 +6,6 @@
  * @link https://matomo.org
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
  *
- * ProtectTrackID Main class, responsible for hash and unhash idSite
- *
  * @copyright (c) 2016 Joubert RedRat
  * @author Joubert RedRat <eu+matomo@redrat.com.br>
  * @license MIT
