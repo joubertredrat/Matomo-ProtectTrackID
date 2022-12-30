@@ -3,7 +3,6 @@
         "BaseDescription": "Cadena base alfanumèrica",
         "BaseHelp": "Introduïu una majúscula i/o una minúscula alfanumèrica. Exemple: ",
         "BaseLabel": "Cadena base",
-        "ErrMsgWrongValue": "Entrada incorrecta",
         "LengthDescription": "Mida de la cadena hash",
         "LengthHelp": "Introduïu una llargada entre 5 i 25. Exemple: ",
         "LengthLabel": "Llargada",
