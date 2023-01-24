@@ -1,1 +1,19 @@
-{}
+{
+    "ProtectTrackID": {
+        "BaseDescription": "Alfasayısal temel dizge",
+        "BaseHelp": "Alfasayısal bir büyük harf ve/veya küçük harf yazın. Simgeler kullanılamaz. Örnek: %1$s",
+        "BaseLabel": "Temel dizge",
+        "ErrMsgInvalidBase": "Temel değeri geçersiz. %1$s olarak dolduruldu.",
+        "ErrMsgInvalidLenght": "%1$d ile %2$d arasında olması gereken geçersiz uzunluk değeri %3$d olarak dolduruldu.",
+        "ErrMsgInvalidSalt": "Çeşni değeri geçersiz. %1$s olarak dolduruldu.",
+        "LengthDescription": "Karma dizgesinin boyutu",
+        "LengthHelp": "%1$d ile %2$d arasında bir uzunluk yazın. Örnek: 15",
+        "LengthLabel": "Uzunluk",
+        "PluginDescription": "idSite değerini varsayılan sayı yerine karma kullanarak koruma seçeneği sunar",
+        "ProtectTrackID": "İzleme kimliği korunsun",
+        "SaltDescription": "siteID değerinin karması için çeşni dizgesi",
+        "SaltHelp": "En az %1$d karakter içeren büyük bir rastgele dizge yazın. Örnek: %2$s",
+        "SaltLabel": "Çeşni",
+        "SettingsDescription": "İzleme kimliğini koruma ayarları. Bu eklentiyi yeni kullanıyorsanız, yapılandırmadan önce https://github.com/joubertredrat/Matomo-ProtectTrackID adresindeki belgeleri okumanız ÖNEMLE ÖNERİLİR."
+    }
+}
