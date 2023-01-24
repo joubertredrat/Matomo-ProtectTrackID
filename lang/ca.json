@@ -1,16 +1,19 @@
 {
     "ProtectTrackID": {
         "BaseDescription": "Cadena base alfanumèrica",
-        "BaseHelp": "Introduïu una majúscula i/o una minúscula alfanumèrica. Exemple: ",
+        "BaseHelp": "Introduïu una majúscula i/o una minúscula alfanumèrica. Exemple:%1$s",
         "BaseLabel": "Cadena base",
+        "ErrMsgInvalidBase": "El valor base no és vàlid, era ple de %1$s.",
+        "ErrMsgInvalidLenght": "Valor de longitud no vàlid, demanat entre %1$d i %2$d, s'ha omplert de %3$d.",
+        "ErrMsgInvalidSalt": "El valor de sal no és vàlid, s'ha omplert amb %1$s.",
         "LengthDescription": "Mida de la cadena hash",
-        "LengthHelp": "Introduïu una llargada entre 5 i 25. Exemple: ",
+        "LengthHelp": "Introduïu una longitud entre %1$d i %2$d. Exemple: 15",
         "LengthLabel": "Llargada",
         "PluginDescription": "Proporciona una opció per protegir idSite utilitzant hash en lloc d'un numèric predeterminat",
         "ProtectTrackID": "Protegir Track ID",
-        "SaltDescription": "Cadena de sal per al hash de track ID",
-        "SaltHelp": "Entra amb una cadena aleatòria gran. Exemple: ",
+        "SaltDescription": "Cadena de sal per al hash siteId",
+        "SaltHelp": "Introduïu amb una cadena aleatòria gran amb %1$d caràcters com a mínim. Exemple: %2$s",
         "SaltLabel": "Sal",
-        "SettingsDescription": "Configuració de ProtectTrackID. Si sou nou amb aquest connector, ÉS MOLT RECOMANAT que vegeu https://github.com/joubertredrat/Piwik-ProtectTrackID abans de configurar-lo."
+        "SettingsDescription": "Configuració de ProtectTrackID. Si sou nou amb aquest connector, ÉS MOLT RECOMANAT que llegiu la documentació a https://github.com/joubertredrat/Piwik-ProtectTrackID abans de configurar-lo."
     }
 }

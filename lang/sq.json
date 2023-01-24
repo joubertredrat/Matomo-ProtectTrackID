@@ -1,1 +1,16 @@
-{}
+{
+    "ProtectTrackID": {
+        "BaseDescription": "Varg baze alfanumerik",
+        "BaseHelp": "Jepni një shenjë alfanumerike, me të madhe dhe/ose të vogël, nuk lejohen simbole. Shembull: %1$s",
+        "BaseLabel": "Varg baze",
+        "ErrMsgInvalidBase": "Vlerë e pavlefshme baze, u dha %1$s.",
+        "ErrMsgInvalidLenght": "Vlerë gjatësie e pavlefshme, pritej mes %1$d dhe %2$d, u dha %3$d.",
+        "LengthDescription": "Madhësi vargu hash",
+        "LengthHelp": "Jepni një gjatësi mes %1$d dhe %2$d. Shembull: 15",
+        "LengthLabel": "Gjatësi",
+        "PluginDescription": "Furnizon një mundësi për mbrojtje idSite-i duke përdorur hash, në vend se vlerë parazgjedhje numerike",
+        "ProtectTrackID": "Mbro Track ID",
+        "SaltHelp": "Jepni një varg të madh kuturu, me minimumi %1$d shenja. Shembull: %2$s",
+        "SettingsDescription": "Rregullime për ProtectTrackID. Nëse e keni për herë të parë me këtë shtojcë, ËSHTË SHUMË FORT E REKOMANDUAR të lexoni dokumentimin te https://github.com/joubertredrat/Matomo-ProtectTrackID, para se ta formësoni."
+    }
+}
