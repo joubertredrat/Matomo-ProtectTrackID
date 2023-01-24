@@ -1,1 +1,6 @@
-{}
+{
+    "ProtectTrackID": {
+        "PluginDescription": "Fornisce un'opzione per proteggere idSite utilizzando l'hash anziché il valore numerico predefinito",
+        "ProtectTrackID": "Proteggi ID traccia"
+    }
+}
