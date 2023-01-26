@@ -4,6 +4,21 @@
 
 Provides a option to protect idSite using hash instead default numeric. This plugin was formerly Piwik Protect TrackID.
 
+## API
+
+This plugin have option to get hashed id from idSite. This can be useful for automations. The method for API request is `ProtectTrackID.getHashedId` and required field is `idSite`.
+
+Example of request
+```bash
+curl -s --request GET --url 'http://0.0.0.0:50003/?module=API&method=ProtectTrackID.getHashedId&token_auth=d367fc84b4198c977cc72af45eb5a81b&idSite=1&format=JSON'
+```
+Example of response
+```json
+{
+  "value": "32BGpzwv5mNDEKv"
+}
+```
+
 ## FAQ
 
 __Why isn't good to change configuration more times?__

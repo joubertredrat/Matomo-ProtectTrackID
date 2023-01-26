@@ -21,7 +21,7 @@ use Hashids\Hashids;
 
 class Hasher
 {
-    private Hashids $hashids;
+    private $hashids;
 
     public function __construct(PluginSettings $settings)
     {

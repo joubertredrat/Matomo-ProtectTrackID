@@ -21,16 +21,16 @@ use Piwik\Container\StaticContainer;
 
 class PluginSettings
 {
-    public const BASE_REGEX = '/^[a-zA-Z0-9]+$/';
-    public const SALT_MIN_LENGTH = 10;
-    public const MIN_LENGTH = 5;
-    public const MAX_LENGTH = 25;
+    const BASE_REGEX = '/^[a-zA-Z0-9]+$/';
+    const SALT_MIN_LENGTH = 10;
+    const MIN_LENGTH = 5;
+    const MAX_LENGTH = 25;
 
-    public ?string $base;
-    public ?string $salt;
-    public ?int $length;
+    public $base;
+    public $salt;
+    public $length;
 
-    public function __construct(?string $base, ?string $salt, ?int $length)
+    public function __construct($base, $salt, $length)
     {
         $this->base = $base;
         $this->salt = $salt;

@@ -15,7 +15,6 @@
 
 namespace Piwik\Plugins\ProtectTrackID;
 
-use Piwik\Settings\Setting;
 use Piwik\Settings\FieldConfig;
 use Piwik\Settings\Plugin\SystemSetting;
 use Piwik\Settings\Plugin\SystemSettings as MatomoPluginSystemSettings;
@@ -23,11 +22,11 @@ use Ramsey\Uuid\Uuid;
 
 class SystemSettings extends MatomoPluginSystemSettings
 {
-    public const BASE_EXAMPLE = 'ABCDEFGHIJKLMNOPijklmnopqrstuvxwyz12345';
+    const BASE_EXAMPLE = 'ABCDEFGHIJKLMNOPijklmnopqrstuvxwyz12345';
 
-    public Setting $base;
-    public Setting $salt;
-    public Setting $length;
+    public $base;
+    public $salt;
+    public $length;
 
     protected function init(): void
     {
@@ -92,7 +91,7 @@ class SystemSettings extends MatomoPluginSystemSettings
                     throw InvalidSettingValueException::handleLenght(
                         PluginSettings::MIN_LENGTH,
                         PluginSettings::MAX_LENGTH,
-                        (int) $value,
+                        (int) $value
                     );
                 }
             };
