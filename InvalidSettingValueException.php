@@ -25,7 +25,7 @@ class InvalidSettingValueException extends InvalidArgumentException
     {
         return new self(sprintf(
             'Invalid value on base, was filled %1$s.',
-            $baseGot,
+            $baseGot
         ));
     }
 
@@ -33,7 +33,7 @@ class InvalidSettingValueException extends InvalidArgumentException
     {
         return new self(sprintf(
             'Invalid value on salt, was filled %1$s.',
-            $saltGot,
+            $saltGot
         ));
     }
 
@@ -43,7 +43,7 @@ class InvalidSettingValueException extends InvalidArgumentException
             'Invalid value on length, expected between %1$d and %2$d, was filled %3$d.',
             $lengthMinExpected,
             $lengthMaxExpected,
-            $lengthGot,
+            $lengthGot
         ));
     }
 }

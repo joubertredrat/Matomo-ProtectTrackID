@@ -24,7 +24,7 @@ class ProtectTrackID extends Plugin
         return [
             'Tracker.getJavascriptCode' => 'encodeIdJavaScript',
             'SitesManager.getImageTrackingCode' => 'encodeIdImage',
-            'Tracker.Request.getIdSite' => 'decodeId',
+            'Tracker.Request.getIdSite' => 'decodeId'
         ];
     }
 
@@ -34,19 +34,19 @@ class ProtectTrackID extends Plugin
         if (!$settings->hasValidValues()) {
             return;
         }
-        $hasher = new Hasher($settings);
 
+        $hasher = new Hasher($settings);
         $codeImpl['idSite'] = $hasher->encode($codeImpl['idSite']);
     }
 
-    public function encodeIdImage(&$piwikUrl, &$urlParams): void
+    public function encodeIdImage(&$matomoUrl, &$urlParams): void
     {
         $settings = PluginSettings::createFromSettings();
         if (!$settings->hasValidValues()) {
             return;
         }
-        $hasher = new Hasher($settings);
 
+        $hasher = new Hasher($settings);
         $urlParams['idsite'] = $hasher->encode($urlParams['idsite']);
     }
 
@@ -70,7 +70,7 @@ class ProtectTrackID extends Plugin
         $regex = sprintf(
             '/^(%s){%s}$/',
             implode('|', str_split($settings->base)),
-            $settings->length,
+            $settings->length
         );
 
         return (bool) preg_match($regex, $hash);
