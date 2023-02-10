@@ -1,1 +1,19 @@
-{}
+{
+    "ProtectTrackID": {
+        "BaseDescription": "英数字ベース文字列",
+        "BaseHelp": "大文字と小文字の英数字を入力してください。記号は使用できません。 例: %1$s",
+        "BaseLabel": "ベース文字列",
+        "ErrMsgInvalidBase": "ベースの値が無効です。%1$s が埋められました。",
+        "ErrMsgInvalidLenght": "%1$d から %2$d の間で予期される長さの無効な値が %3$d に入力されました。",
+        "ErrMsgInvalidSalt": "salt の値が無効です。%1$s が埋められました。",
+        "LengthDescription": "ハッシュ文字列サイズ",
+        "LengthHelp": "%1$d から %2$d までの長さを入力してください。 例: 15",
+        "LengthLabel": "レングス",
+        "PluginDescription": "デフォルトの数値の代わりにハッシュを使用して idSite を保護するオプションを提供します",
+        "ProtectTrackID": "トラック ID の保護",
+        "SaltDescription": "ハッシュ siteId の Salt 文字列",
+        "SaltHelp": "最小限の %1$d 文字で大きなランダム文字列を入力してください。 例: %2$s",
+        "SaltLabel": "Salt",
+        "SettingsDescription": "ProtectTrackID の設定。 このプラグインを初めて使用する場合は、設定する前に https://github.com/joubertredrat/Matomo-ProtectTrackID のドキュメントを読むことを強くお勧めします。"
+    }
+}
