@@ -1,1 +1,7 @@
-{}
+{
+    "ProtectTrackID": {
+        "PluginDescription": "Menyediakan opsi untuk melindungi idSite menggunakan hash, bukan numerik bawaan",
+        "ProtectTrackID": "Protect Track ID",
+        "SettingsDescription": "Pengaturan untuk ProtectTrackID. Jika Anda baru menggunakan pengaya ini, SANGAT DIREKOMENDASIKAN untuk membaca dokumentasi di https://github.com/joubertredrat/Matomo-ProtectTrackID sebelum melakukan pengaturan."
+    }
+}
