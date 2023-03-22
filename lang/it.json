@@ -1,6 +1,19 @@
 {
     "ProtectTrackID": {
+        "BaseDescription": "Stringa di base alfanumerica",
+        "BaseHelp": "Inserisci un carattere alfanumerico maiuscolo e/o minuscolo, i simboli non sono consentiti. Esempio: %1$s",
+        "BaseLabel": "Stringa di base",
+        "ErrMsgInvalidBase": "Valore non valido per la base, è stato compilato come %1$s.",
+        "ErrMsgInvalidLenght": "Il valore non valido per la lunghezza, previsto tra %1$d e %2$d, è stato compilato come %3$d.",
+        "ErrMsgInvalidSalt": "Valore non valido per la stringa Salt, è stato compilato come %1$s.",
+        "LengthDescription": "Dimensione della stringa hash",
+        "LengthHelp": "Inserisci una lunghezza compresa tra %1$d e %2$d. Esempio: 15",
+        "LengthLabel": "Lunghezza",
         "PluginDescription": "Fornisce un'opzione per proteggere idSite utilizzando l'hash anziché il valore numerico predefinito",
-        "ProtectTrackID": "Proteggi ID traccia"
+        "ProtectTrackID": "Proteggi ID traccia",
+        "SaltDescription": "Stringa salt per hash siteId",
+        "SaltHelp": "Inserisci una grande stringa casuale con minimo %1$d caratteri. Esempio: %2$s",
+        "SaltLabel": "Stringa Salt",
+        "SettingsDescription": "Impostazioni di ProtectTrackID. Se sei nuovo con questo plugin, È ALTAMENTE RACCOMANDATO di leggere la documentazione in https://github.com/joubertredrat/Matomo-ProtectTrackID prima di configurare."
     }
 }
