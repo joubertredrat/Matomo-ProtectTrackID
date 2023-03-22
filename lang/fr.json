@@ -1,1 +1,19 @@
-{}
+{
+    "ProtectTrackID": {
+        "BaseDescription": "Chaîne alphanumérique de base",
+        "BaseHelp": "Entrez un nom alphanumérique en majuscules et/ou minuscules, les symboles ne sont pas autorisés. Exemple : %1$s",
+        "BaseLabel": "Chaîne de base",
+        "ErrMsgInvalidBase": "Base invalide, %1$s saisi.",
+        "ErrMsgInvalidLenght": "Longueur invalide, attendu valeur entre %1$d et %2$d, %3$d saisi.",
+        "ErrMsgInvalidSalt": "Sel invalide, %1$s saisi.",
+        "LengthDescription": "Taille de la chaîne de hachage",
+        "LengthHelp": "Entrez une longueur entre %1$d et %2$d. Exemple : 15",
+        "LengthLabel": "Longueur",
+        "PluginDescription": "Fournit une option pour protéger idSite en utilisant un hash au lieu d'une valeur numérique par défaut",
+        "ProtectTrackID": "Protection Track ID",
+        "SaltDescription": "Sel pour le hachage du siteId",
+        "SaltHelp": "Entrez une grande chaîne aléatoire avec un minimum de %1$d caractères. Exemple : %2$s",
+        "SaltLabel": "Sel",
+        "SettingsDescription": "Paramètres pour Protection Track ID. Si vous découvrez ce composant, il est VIVEMENT RECOMMANDÉ de lire la documentation sur https://github.com/joubertredrat/Matomo-ProtectTrackID avant de le configurer."
+    }
+}
