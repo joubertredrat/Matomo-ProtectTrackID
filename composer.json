@@ -1,7 +1,12 @@
 {
   "require": {
     "php": ">=7.3.5",
+    "ext-mbstring": "*",
     "hashids/hashids": "^4.1",
     "ramsey/uuid": "4.2.3"
+  },
+  "suggest": {
+    "ext-bcmath": "Required to use BC Math arbitrary precision mathematics (*).",
+    "ext-gmp": "Required to use GNU multiple precision mathematics (*)."
   }
 }
