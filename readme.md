@@ -4,6 +4,11 @@
 
 Provides a option to protect idSite using hash instead default numeric. This plugin was formerly Piwik Protect TrackID.
 
+## Dependencies
+
+* PHP 7.3.5 or above
+* bcmath, gmp and mbstring extensions
+
 ## API
 
 This plugin have option to get hashed id from idSite. This can be useful for automations. The method for API request is `ProtectTrackID.getHashedId` and required field is `idSite`.
