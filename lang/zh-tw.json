@@ -1,1 +1,19 @@
-{}
+{
+    "ProtectTrackID": {
+        "BaseDescription": "字母數字基礎字符串",
+        "BaseHelp": "輸入字母及數字，不允許使用符號。示例：%1$s",
+        "BaseLabel": "基礎字符串",
+        "ErrMsgInvalidBase": "基礎值無效，已填寫 %1$s。",
+        "ErrMsgInvalidLenght": "長度無效，應在 %1$d 和 %2$d 之間，填寫了 %3$d。",
+        "ErrMsgInvalidSalt": "鹽值無效，已填寫 %1$s。",
+        "LengthDescription": "雜湊字串大小",
+        "LengthHelp": "輸入 %1$d 到 %2$d 之間的長度。例如：15",
+        "LengthLabel": "長度",
+        "PluginDescription": "提供選項以雜湊值保護 idSite，而不是使用預設的數字",
+        "ProtectTrackID": "保護追蹤 ID",
+        "SaltDescription": "用於 siteId 雜湊的鹽字串",
+        "SaltHelp": "輸入一個至少有 %1$d 個字符的隨機字串。例如：%2$s",
+        "SaltLabel": "鹽",
+        "SettingsDescription": "ProtectTrackID 的設定。如果您是首次使用此外掛，強烈建議您在設定之前閱讀 https://github.com/joubertredrat/Matomo-ProtectTrackID 的說明文件。"
+    }
+}
