@@ -1,1 +1,19 @@
-{}
+{
+    "ProtectTrackID": {
+        "BaseDescription": "Буквено-цифровий базовий рядок",
+        "BaseHelp": "Введіть буквено-цифрові та/або малі букви, символи не дозволяються. Приклад: %1$s",
+        "BaseLabel": "Базовий рядок",
+        "ErrMsgInvalidBase": "Недійсне базове значення %1$s.",
+        "ErrMsgInvalidLenght": "Недійсне значення довжини, очікуване між %1$d і %2$d, було заповнено %3$d.",
+        "ErrMsgInvalidSalt": "Недійсне значення солі %1$s.",
+        "LengthDescription": "Розмір хеш-рядка",
+        "LengthHelp": "Введіть довжину між %1$d і%2$d. Приклад: 15",
+        "LengthLabel": "Довжина",
+        "PluginDescription": "Надає можливість захистити idSite за допомогою хешу замість усталеного числового",
+        "ProtectTrackID": "Захистити Track ID",
+        "SaltDescription": "Рядок солі для хеш-ідентифікатора сайту",
+        "SaltHelp": "Введіть великий випадковий рядок із мінімумом %1$d символів. Приклад: %2$s",
+        "SaltLabel": "Сіль",
+        "SettingsDescription": "Налаштування ProtectTrackID. Якщо ви не знайомі з цим плагіном, НАПОЛЕГЛИВО РАДИМО прочитати документацію на https://github.com/joubertredrat/Matomo-ProtectTrackID перед конфігуруванням."
+    }
+}
