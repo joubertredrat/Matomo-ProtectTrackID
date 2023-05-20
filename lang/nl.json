@@ -1,6 +1,19 @@
 {
     "ProtectTrackID": {
+        "BaseDescription": "Alfanumerieke basis string",
+        "BaseHelp": "Voer een alfanumerieke hoofdletter en/of kleine letter in, symbolen zijn niet toegestaan. Voorbeeld: %1$s",
+        "BaseLabel": "Basis string",
+        "ErrMsgInvalidBase": "Ongeldige waarde op de basis, werd ingevuld %1$s.",
+        "ErrMsgInvalidLenght": "Ongeldige waarde voor lengte, moet tussen %1$d en %2$d zijn, werd ingevuld %3$d.",
+        "ErrMsgInvalidSalt": "Ongeldige waarde op salt, werd ingevuld %1$s.",
+        "LengthDescription": "Hash string grootte",
+        "LengthHelp": "Geef een lengte tussen %1$d en %2$d. Voorbeeld: 15",
+        "LengthLabel": "Lengte",
         "PluginDescription": "Biedt een optie om idSite te beveiligen met een hash in plaats van standaard numeriek",
+        "ProtectTrackID": "Bescherm Track ID",
+        "SaltDescription": "Salt string voor hash siteId",
+        "SaltHelp": "Voer een grote willekeurige string in met minimaal %1$d karakters. Voorbeeld: %2$s",
+        "SaltLabel": "Salt",
         "SettingsDescription": "Instellingen voor ProtectTrackID. Is deze plugin nieuw voor u, dan is het STERK AANBEVOLEN eerst de documentatie https://github.com/joubertredrat/Matomo-ProtectTrackID te lezen vóór het configureren."
     }
 }
