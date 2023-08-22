@@ -1,5 +1,6 @@
 {
     "ProtectTrackID": {
+        "BaseDescription": "Alfanumerisk grunnstreng",
         "LengthHelp": "Skriv inn en lengde, fra %1$d til %2$d. Eksempel: 15",
         "LengthLabel": "Lengde",
         "SaltDescription": "Saltstreng for hasj av site-ID",
