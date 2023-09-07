@@ -1,8 +1,10 @@
 {
     "ProtectTrackID": {
         "BaseDescription": "Alfanumerisk grunnstreng",
+        "ErrMsgInvalidLenght": "Ugyldig lengde på %3$d. Skal være mellom %1$d-%2$d.",
         "LengthHelp": "Skriv inn en lengde, fra %1$d til %2$d. Eksempel: 15",
         "LengthLabel": "Lengde",
+        "ProtectTrackID": "Beskytt sporings-ID",
         "SaltDescription": "Saltstreng for hasj av site-ID",
         "SaltLabel": "Salt"
     }
