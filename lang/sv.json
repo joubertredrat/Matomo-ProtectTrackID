@@ -1,1 +1,19 @@
-{}
+{
+    "ProtectTrackID": {
+        "BaseDescription": "Alfanumerisk sträng",
+        "BaseHelp": "Ange en alfanumerisk sträng med stora eller små tecken, symboler fungerar inte. Exempel: %1$s",
+        "BaseLabel": "Grundläggande sträng",
+        "ErrMsgInvalidBase": "Ogiltigt basvärde fylldes i %1$s.",
+        "ErrMsgInvalidLenght": "Ogiltig längd. Förväntades vara mellan %1$d och %2$d, fylldes med %3$d.",
+        "ErrMsgInvalidSalt": "Ogiltigt salt angavs %1$s.",
+        "LengthDescription": "Hashsträngens storlek",
+        "LengthHelp": "Ange en längd mellan %1$d och %2$d. Exempelvis: 15",
+        "LengthLabel": "Längd",
+        "PluginDescription": "Val att skydda idSite genom en hash istället för ett förvalt nummer",
+        "ProtectTrackID": "Skydda spårnings-ID",
+        "SaltDescription": "Saltad sträng för hashat siteId",
+        "SaltHelp": "Ange en längre slumpmässig textsträng med minst %1$d tecken. Exempelvis: %2$s",
+        "SaltLabel": "Salt",
+        "SettingsDescription": "Inställningar för ProtectTrackID. Om detta plugin är nytt för dig rekommenderas du att läsa dokumentationen på https://github.com/joubertredrat/Matomo-ProtectTrackID innan konfiguration."
+    }
+}
