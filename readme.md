@@ -9,6 +9,10 @@ Provides a option to protect idSite using hash instead default numeric. This plu
 * PHP 7.3.5 or above
 * bcmath, gmp and mbstring extensions
 
+## Support
+
+If you need support, you can open a new thread in [Matomo Plugins Forum](https://forum.matomo.org/c/plugins-platform/11) or [opening a issue](https://github.com/joubertredrat/Matomo-ProtectTrackID/issues/new), any other ways of contact will be rejected.
+
 ## API
 
 This plugin have option to get hashed id from idSite. This can be useful for automations. The method for API request is `ProtectTrackID.getHashedId` and required field is `idSite`.
