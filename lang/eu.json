@@ -1,1 +1,19 @@
-{}
+{
+    "ProtectTrackID": {
+        "BaseDescription": "Oinarrizko kate alfanumerikoa",
+        "BaseHelp": "Sartu maiuskula edota minuskula alfanumeriko bat, ikurrak ez dira onartzen. Adibidez: %1$s",
+        "BaseLabel": "Oinarrizko katea",
+        "ErrMsgInvalidBase": "Balio baliogabea oinarrian, honekin bete da: %1$s.",
+        "ErrMsgInvalidLenght": "Balio edo luzera baliogabea, %1$d eta %2$d artekoa espero zen, honekin bete da: %3$d.",
+        "ErrMsgInvalidSalt": "Balio baliogabea salt-ean, honekin bete da: %1$s.",
+        "LengthDescription": "Hash katearen tamaina",
+        "LengthHelp": "Sartu %1$d eta %2$d arteko luzera bat. Adibidez: 15",
+        "LengthLabel": "Luzera",
+        "PluginDescription": "Gunearen id-a babesteko aukera ematen du, zenbakizko balio lehenetsiaren ordez hash bat erabiliz",
+        "ProtectTrackID": "Babestu jarraipen IDa",
+        "SaltDescription": "siteId-ren hash-arentzako salt katea",
+        "SaltHelp": "Sartu ausazko kate luze bat, gutxienez %1$d karakterekoa. Adibidez: %2$s",
+        "SaltLabel": "Salt-a",
+        "SettingsDescription": "ProtectTrackID-ren ezarpenak. Plugin hau erabiltzen hasi berria bazara, BIZIKI GOMENDATZEN DA dokumentazioa irakurtzea: https://github.com/joubertredrat/Matomo-ProtectTrackID konfiguratzen hasi aurretik."
+    }
+}
