@@ -5,6 +5,7 @@
         "BaseLabel": "Varg baze",
         "ErrMsgInvalidBase": "Vlerë e pavlefshme baze, u dha %1$s.",
         "ErrMsgInvalidLenght": "Vlerë gjatësie e pavlefshme, pritej mes %1$d dhe %2$d, u dha %3$d.",
+        "ErrMsgInvalidSalt": "Vlerë e pavlefshme në “salt”, qe plotësuar %1$s.",
         "LengthDescription": "Madhësi vargu hash",
         "LengthHelp": "Jepni një gjatësi mes %1$d dhe %2$d. Shembull: 15",
         "LengthLabel": "Gjatësi",
