@@ -46,3 +46,4 @@ jobs:
           matomo-test-branch: '${{ matrix.matomo-target }}'
           node-version: '${{ matrix.node }}'
           mysql-service: true
+          phpunit-test-options: --testdox
