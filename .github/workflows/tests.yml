@@ -1,0 +1,48 @@
+name: Tests
+
+on:
+  push:
+    paths-ignore:
+      - '*.md'
+
+jobs:
+  tests:
+    strategy:
+      fail-fast: false
+      matrix:
+        php:
+          - '7.3'
+          - '7.4'
+          - '8.0'
+          - '8.1'
+          - '8.2'
+          - '8.3'
+        matomo-target:
+          - minimum_required_matomo
+          - maximum_supported_matomo
+        node:
+          - 12.x
+          - 20.x
+    runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      pull-requests: write
+      contents: read
+    name: >-
+      Tests w/ PHP ${{ matrix.php }}, Node.js ${{ matrix.node }}, Target Matomo
+      '${{ matrix.matomo-target }}'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+          persist-credentials: false
+      - name: Run plugin tests
+        uses: matomo-org/github-action-tests@main
+        with:
+          plugin-name: ProtectTrackID
+          test-type: PluginTests
+          php-version: '${{ matrix.php }}'
+          matomo-test-branch: '${{ matrix.matomo-target }}'
+          node-version: '${{ matrix.node }}'
+          mysql-service: true
