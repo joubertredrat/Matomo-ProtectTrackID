@@ -4,6 +4,10 @@ on:
   push:
     paths-ignore:
       - '*.md'
+      - '*.json'
+      - '*.png'
+      - 'license'
+      - '.editorconfig'
 
 jobs:
   tests:
