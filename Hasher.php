@@ -17,6 +17,8 @@ declare(strict_types=1);
 
 namespace Piwik\Plugins\ProtectTrackID;
 
+require_once(__DIR__ . '/vendor/autoload.php');
+
 use Hashids\Hashids;
 
 class Hasher
@@ -25,7 +27,6 @@ class Hasher
 
     public function __construct(PluginSettings $settings)
     {
-        require_once(__DIR__ . '/vendor/autoload.php');
         $this->hashids = new Hashids($settings->salt, $settings->length, $settings->base);
     }
 

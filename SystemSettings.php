@@ -15,6 +15,8 @@
 
 namespace Piwik\Plugins\ProtectTrackID;
 
+require_once(__DIR__ . '/vendor/autoload.php');
+
 use Piwik\Settings\FieldConfig;
 use Piwik\Settings\Plugin\SystemSetting;
 use Piwik\Settings\Plugin\SystemSettings as MatomoPluginSystemSettings;
@@ -30,8 +32,6 @@ class SystemSettings extends MatomoPluginSystemSettings
 
     protected function init(): void
     {
-        require_once(__DIR__ . '/vendor/autoload.php');
-
         $this->base = $this->createBaseSetting();
         $this->salt = $this->createSaltSetting();
         $this->length = $this->createLengthSetting();
