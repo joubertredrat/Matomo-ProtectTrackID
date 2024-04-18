@@ -12,10 +12,13 @@
  * @package ProtectTrackID
  */
 
+declare(strict_types=1);
+
 namespace Piwik\Plugins\ProtectTrackID\tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Piwik\Plugins\ProtectTrackID\Hasher;
+use Piwik\Plugins\ProtectTrackID\InvalidHasherValueException;
 use Piwik\Plugins\ProtectTrackID\PluginSettings;
 
 /**
@@ -25,36 +28,48 @@ use Piwik\Plugins\ProtectTrackID\PluginSettings;
  */
 class HasherTest extends TestCase
 {
+    const BASE = 'ABCDEFGHIJKLMNOPijklmnopqrstuvxwyz12345';
+    const SALT = 'd4768387-2f45-47cc-b581-7f66c5b724af';
+    const LENGTH = 20;
     const ID_1_RAW = '1';
     const ID_1_HASEHD = '4jMymK3Eq1k21pxLOJlv';
 
     public function testEncode(): void
     {
-        $pluginSettings = new PluginSettings(
-            'ABCDEFGHIJKLMNOPijklmnopqrstuvxwyz12345',
-            'd4768387-2f45-47cc-b581-7f66c5b724af',
-            20
-        );
-
-        $hasher = new Hasher($pluginSettings);
+        $hasher = new Hasher($this->getPluginSettings());
         $hashExpected = self::ID_1_HASEHD;
         $hashGot = $hasher->encode(self::ID_1_RAW);
 
         self::assertEquals($hashExpected, $hashGot);
     }
 
+    public function testEncodeWithInvalidId(): void
+    {
+        $this->expectException(InvalidHasherValueException::class);
+
+        $hasher = new Hasher($this->getPluginSettings());
+        $hasher->encode('foo');
+    }
+
     public function testDecode(): void
     {
-        $pluginSettings = new PluginSettings(
-            'ABCDEFGHIJKLMNOPijklmnopqrstuvxwyz12345',
-            'd4768387-2f45-47cc-b581-7f66c5b724af',
-            20
-        );
-
-        $hasher = new Hasher($pluginSettings);
+        $hasher = new Hasher($this->getPluginSettings());
         $idExpected = self::ID_1_RAW;
         $idGot = $hasher->decode(self::ID_1_HASEHD);
 
         self::assertEquals($idExpected, $idGot);
+    }
+
+    public function testDecodeWithInvalidHash(): void
+    {
+        $this->expectException(InvalidHasherValueException::class);
+
+        $hasher = new Hasher($this->getPluginSettings());
+        $hasher->decode('foo');
+    }
+
+    private function getPluginSettings(): PluginSettings
+    {
+        return new PluginSettings(self::BASE, self::SALT, self::LENGTH);
     }
 }

@@ -12,6 +12,8 @@
  * @package ProtectTrackID
  */
 
+declare(strict_types=1);
+
 namespace Piwik\Plugins\ProtectTrackID\tests\Unit;
 
 use PHPUnit\Framework\TestCase;
