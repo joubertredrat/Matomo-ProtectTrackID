@@ -32,6 +32,10 @@ class Hasher
 
     public function encode(string $value): string
     {
+        if (!IdSite::isValid($value)) {
+            throw InvalidHasherValueException::handleEncode($value);
+        }
+
         return $this
             ->hashids
             ->encode($value)
@@ -40,9 +44,19 @@ class Hasher
 
     public function decode(string $value): int
     {
-        return $this
+        $ids = $this
             ->hashids
-            ->decode($value)[0]
+            ->decode($value)
         ;
+
+        if (count($ids) !== 1) {
+            throw InvalidHasherValueException::handleDecode($value);
+        }
+
+        if (!IdSite::isValid($ids[0])) {
+            throw InvalidHasherValueException::handleDecode($value);
+        }
+
+        return $ids[0];
     }
 }
