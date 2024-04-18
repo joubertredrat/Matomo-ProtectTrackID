@@ -1,6 +1,6 @@
 {
   "name": "ProtectTrackID",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "Provides a option to protect idSite using hash instead default numeric",
   "license": "MIT",
   "homepage": "https://github.com/joubertredrat/Matomo-ProtectTrackID",
