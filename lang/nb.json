@@ -1,11 +1,19 @@
 {
     "ProtectTrackID": {
         "BaseDescription": "Alfanumerisk grunnstreng",
+        "BaseHelp": "Skriv inn bokstaver og tall, store og/eller små. Symboler er ikke tillatt. Eksempel: %1$s",
+        "BaseLabel": "Grunnstreng",
+        "ErrMsgInvalidBase": "Ugyldig verdi for grunnstrengen, %1$s ble fylt inn.",
         "ErrMsgInvalidLenght": "Ugyldig lengde på %3$d. Skal være mellom %1$d-%2$d.",
+        "ErrMsgInvalidSalt": "Ugyldig verdi for salt, %1$s ble fylt inn.",
+        "LengthDescription": "Lengde på hash-strengen",
         "LengthHelp": "Skriv inn en lengde, fra %1$d til %2$d. Eksempel: 15",
         "LengthLabel": "Lengde",
+        "PluginDescription": "Gir mulighet til å beskytte idSite med en hash i stedet for standard tall-ID",
         "ProtectTrackID": "Beskytt sporings-ID",
-        "SaltDescription": "Saltstreng for hasj av site-ID",
-        "SaltLabel": "Salt"
+        "SaltDescription": "Saltstreng for hash av site-ID",
+        "SaltHelp": "Skriv inn en lang, tilfeldig streng på minst %1$d tegn. Eksempel: %2$s",
+        "SaltLabel": "Salt",
+        "SettingsDescription": "Innstillinger for ProtectTrackID. Hvis du er ny med dette tillegget, ANBEFALES DET STERKT at du leser dokumentasjonen på https://github.com/joubertredrat/Matomo-ProtectTrackID før du setter det opp."
     }
 }

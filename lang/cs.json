@@ -1,1 +1,19 @@
-{}
+{
+    "ProtectTrackID": {
+        "BaseDescription": "Alfanumerický základní řetězec",
+        "BaseHelp": "Zadejte řetězec tvořený velkými a/nebo malými písmeny a číslicemi; symboly nejsou povoleny. Příklad: %1$s",
+        "BaseLabel": "Základní řetězec",
+        "ErrMsgInvalidBase": "Byla zadána neplatná hodnota základního řetězce: %1$s.",
+        "ErrMsgInvalidLenght": "Byla zadána neplatná délka %3$d; očekává se hodnota od %1$d do %2$d.",
+        "ErrMsgInvalidSalt": "Byla zadána neplatná hodnota soli: %1$s.",
+        "LengthDescription": "Délka hashovacího řetězce",
+        "LengthHelp": "Zadejte délku mezi %1$d a %2$d. Příklad: 15",
+        "LengthLabel": "Délka",
+        "PluginDescription": "Umožňuje chránit idSite pomocí hashe namísto výchozího číselného ID",
+        "ProtectTrackID": "Chránit ID sledování",
+        "SaltDescription": "Řetězec soli pro hashování siteId",
+        "SaltHelp": "Zadejte dlouhý náhodný řetězec o délce alespoň %1$d znaků. Příklad: %2$s",
+        "SaltLabel": "Sůl",
+        "SettingsDescription": "Nastavení pro ProtectTrackID. Pokud s tímto pluginem začínáte, VELMI DOPORUČUJEME, abyste si před konfigurací přečetli dokumentaci na https://github.com/joubertredrat/Matomo-ProtectTrackID."
+    }
+}

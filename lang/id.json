@@ -1,8 +1,19 @@
 {
     "ProtectTrackID": {
+        "BaseDescription": "String dasar alfanumerik",
+        "BaseHelp": "Masukkan string alfanumerik huruf besar dan/atau huruf kecil, simbol tidak diperbolehkan. Contoh: %1$s",
         "BaseLabel": "String dasar",
-        "PluginDescription": "Menyediakan opsi untuk melindungi idSite menggunakan hash, bukan numerik bawaan",
-        "ProtectTrackID": "Protect Track ID",
-        "SettingsDescription": "Pengaturan untuk ProtectTrackID. Jika Anda baru menggunakan pengaya ini, SANGAT DIANJURKAN untuk membaca dokumentasi di https://github.com/joubertredrat/Matomo-ProtectTrackID sebelum mengubah pengaturannya."
+        "ErrMsgInvalidBase": "Nilai tidak valid pada base, diisi %1$s.",
+        "ErrMsgInvalidLenght": "Nilai tidak valid pada length, yang diharapkan antara %1$d dan %2$d, diisi %3$d.",
+        "ErrMsgInvalidSalt": "Nilai tidak valid pada salt, diisi %1$s.",
+        "LengthDescription": "Ukuran string hash",
+        "LengthHelp": "Masukkan panjang antara %1$d dan %2$d. Contoh: 15",
+        "LengthLabel": "Panjang",
+        "PluginDescription": "Menyediakan opsi untuk melindungi idSite menggunakan hash alih‑alih nilainya yang berupa angka secara default",
+        "ProtectTrackID": "Proteksi ID Track",
+        "SaltDescription": "String salt untuk hash siteId",
+        "SaltHelp": "Masukkan string acak yang panjang dengan minimal %1$d karakter. Contoh: %2$s",
+        "SaltLabel": "Salt",
+        "SettingsDescription": "Pengaturan untuk ProtectTrackID. Jika Anda baru menggunakan plugin ini, SANGAT DIANJURKAN untuk membaca dokumentasi di [https://github.com/joubertredrat/Matomo-ProtectTrackID](https://github.com/joubertredrat/Matomo-ProtectTrackID) sebelum melakukan konfigurasi."
     }
 }

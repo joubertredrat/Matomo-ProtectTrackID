@@ -1,1 +1,19 @@
-{}
+{
+    "ProtectTrackID": {
+        "BaseDescription": "Teaghrán bonn alfa-uimhriúil",
+        "BaseHelp": "Cuir isteach cás alfa-uimhriúil agus/nó cúlchás, ní cheadaítear siombailí. Sampla: %1$s",
+        "BaseLabel": "Teaghrán bonn",
+        "ErrMsgInvalidBase": "Luach neamhbhailí ar an mbonn, líonadh %1$s.",
+        "ErrMsgInvalidLenght": "Líonadh luach neamhbhailí ar fhad, ag súil leis idir %1$d agus %2$d %3$d.",
+        "ErrMsgInvalidSalt": "Luach neamhbhailí ar shalann, líonadh %1$s.",
+        "LengthDescription": "Méid teaghrán hash",
+        "LengthHelp": "Iontráil fad idir %1$d agus %2$d. Sampla:15",
+        "LengthLabel": "Fad",
+        "PluginDescription": "Soláthraíonn sé rogha chun idSite a chosaint ag baint úsáide as hash ionad uimhriúil réamhshocraithe",
+        "ProtectTrackID": "Cosain Aitheantas an Riain",
+        "SaltDescription": "Teaghrán salainn le haghaidh hash siteId",
+        "SaltHelp": "Iontráil le teaghrán mór randamach a bhfuil %1$d carachtar ar a laghad ann. Sampla: %2$s",
+        "SaltLabel": "Salann",
+        "SettingsDescription": "Socruithe do ProtectTrackID. Má tá tú nua leis an mbreiseán seo, IS MOLTA go mór duit an doiciméadú a léamh in https://github.com/joubertredrat/Matomo-ProtectTrackID roimh chumrú."
+    }
+}
