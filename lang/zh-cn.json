@@ -1,1 +1,19 @@
-{}
+{
+    "ProtectTrackID": {
+        "BaseDescription": "字母数字基础字符串",
+        "BaseHelp": "输入大写和/或小写字母数字，不允许使用符号。示例：%1$s",
+        "BaseLabel": "基础字符串",
+        "ErrMsgInvalidBase": "基础字符串的值无效，填写的是 %1$s。",
+        "ErrMsgInvalidLenght": "长度的值无效，应在 %1$d 到 %2$d 之间，填写的是 %3$d。",
+        "ErrMsgInvalidSalt": "盐值的值无效，填写的是 %1$s。",
+        "LengthDescription": "哈希字符串长度",
+        "LengthHelp": "输入 %1$d 到 %2$d 之间的长度。示例：15",
+        "LengthLabel": "长度",
+        "PluginDescription": "提供使用哈希值而非默认数字来保护 idSite 的选项",
+        "ProtectTrackID": "Protect Track ID",
+        "SaltDescription": "用于对 siteId 进行哈希的盐值字符串",
+        "SaltHelp": "输入一个至少 %1$d 个字符的长随机字符串。示例：%2$s",
+        "SaltLabel": "盐值",
+        "SettingsDescription": "ProtectTrackID 的设置。如果您是初次使用此插件，强烈建议您在配置前阅读 https://github.com/joubertredrat/Matomo-ProtectTrackID 中的文档。"
+    }
+}
