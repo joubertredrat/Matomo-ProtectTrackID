@@ -1,1 +1,19 @@
-{}
+{
+    "ProtectTrackID": {
+        "BaseDescription": "Șir de bază alfanumeric",
+        "BaseHelp": "Introduceți caractere alfanumerice majuscule și/sau minuscule; simbolurile nu sunt permise. Exemplu: %1$s",
+        "BaseLabel": "Șir de bază",
+        "ErrMsgInvalidBase": "Valoare nevalidă pentru bază, s-a introdus %1$s.",
+        "ErrMsgInvalidLenght": "Valoare nevalidă pentru lungime, se aștepta o valoare între %1$d și %2$d, s-a introdus %3$d.",
+        "ErrMsgInvalidSalt": "Valoare nevalidă pentru salt, s-a introdus %1$s.",
+        "LengthDescription": "Dimensiunea șirului hash",
+        "LengthHelp": "Introduceți o lungime între %1$d și %2$d. Exemplu: 15",
+        "LengthLabel": "Lungime",
+        "PluginDescription": "Oferă o opțiune de protejare a idSite folosind un hash în locul valorii numerice implicite",
+        "ProtectTrackID": "Protect Track ID",
+        "SaltDescription": "Șir salt pentru hash-ul siteId",
+        "SaltHelp": "Introduceți un șir aleatoriu lung, de minimum %1$d caractere. Exemplu: %2$s",
+        "SaltLabel": "Salt",
+        "SettingsDescription": "Setări pentru ProtectTrackID. Dacă sunteți nou în folosirea acestui plugin, SE RECOMANDĂ CU TĂRIE să citiți documentația de la https://github.com/joubertredrat/Matomo-ProtectTrackID înainte de configurare."
+    }
+}
