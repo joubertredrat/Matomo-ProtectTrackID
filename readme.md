@@ -6,7 +6,7 @@ Provides a option to protect idSite using hash instead default numeric. This plu
 
 ## Dependencies
 
-* PHP 7.3.5 or above
+* PHP 8.1.0 or above
 * bcmath, gmp and mbstring extensions
 
 ## Support

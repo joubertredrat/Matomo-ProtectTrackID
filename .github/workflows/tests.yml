@@ -15,18 +15,18 @@ jobs:
       fail-fast: false
       matrix:
         php:
-          - '7.3'
-          - '7.4'
-          - '8.0'
-          - '8.1'
-          - '8.2'
-          - '8.3'
+          - matomo6_min_php
+          - matomo6_max_php
         matomo-target:
           - minimum_required_matomo
           - maximum_supported_matomo
         node:
-          - 12.x
-          - 20.x
+          - '24'
+        database:
+          - engine: Mysql
+            version: '8.0'
+          - engine: Mariadb
+            version: '10.6'
     runs-on: ubuntu-latest
     permissions:
       checks: write
@@ -34,10 +34,11 @@ jobs:
       contents: read
     name: >-
       Tests w/ PHP ${{ matrix.php }}, Node.js ${{ matrix.node }}, Target Matomo
-      '${{ matrix.matomo-target }}'
+      '${{ matrix.matomo-target }}', ${{ matrix.database.engine }}
+      ${{ matrix.database.version }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           lfs: true
           persist-credentials: false
@@ -50,4 +51,6 @@ jobs:
           matomo-test-branch: '${{ matrix.matomo-target }}'
           node-version: '${{ matrix.node }}'
           mysql-service: true
+          mysql-engine: '${{ matrix.database.engine }}'
+          mysql-version: '${{ matrix.database.version }}'
           phpunit-test-options: --testdox
